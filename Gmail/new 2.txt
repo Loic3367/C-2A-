@@ -1,0 +1,48 @@
+Guide de bonnes pratiques en c# et en développement de facon générale :
+
+Que ce soit pour développer vos projets en DotNet ou en Javascript, ces bonnes pratiques et règles vous
+seront utiles si vous êtes plusieurs à travailler sur un même projet ou que votre code est transmis à 
+un autre développeur.
+
+Bonnes pratiques générales
+
+1) Les conventions de style:
+
+Les conventions de style permettent d'attribuer la même typographie entre les variables, champs, fonction, etc..
+
+Il existe 3 grandes facons d'écrire nos accesseurs : 
+- Pascal case : 1ère lettres de chaques mots est en majuscules. ex : "BackColor"
+- Camel case : 1ère lettre est minuscule, puis chaque 1ère lettre de chaque mot est majuscules. ex : "backColor"
+- Uppercase : Toutes les lettres sont en majuscules. ex : "IO"
+
+Vous trouverez les conventions pour chaques types d'accesseurs dans le document ci-dessous (en DOTNET) : 
+https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-1.1/x2dbyw72%28v%3dvs.71%29 
+
+Ces conventions peuvent êtres réutilisables dans tous les languages.
+
+2) Sensible à la casse : 
+
+la première règle consiste à ne pas créer d'identifiers qui se différencie d'un autre uniquement par des 
+masjucules : Par exemple : "var myVar = 0;" et "var MYVAR = 0;" sont faux parce que ce qui les différencient
+sont uniquement des majuscules/minuscules.
+
+Cette règle marche aussi pour les paramètres des fonctions, et le nom des fonctions.
+
+3) Lisibilité du code et commentaires
+
+Cette partie traite de toutes les petites astuces à faire lorsque on code (qui deviendront des réflexes au fur
+et à mesure).
+
+a) Fluidité  du code
+Pour être compréhensible, un code de projet doit être :
+- bien écrit, pas de fautes d'orthographe ou de grammaire dans les fonctions, variables ou même les commentaires.
+- l'indentation du code : décaller son code petit à petit pour le rendre lisible. La plupart des IDE (Interface de devéloppement) le font
+automatiquement lorsque on retourne à la ligne dans une fonction par exemple.
+- Utiliser un IDE permettra de s'y retrouver plus facilement dans son projet et de bénéficier de fonctionnalités 
+b) Gestion des commentaires pour autrui et soi-même
+c) 
+
+https://blog.cellenza.com/dotnet/organiser-son-code-dans-sa-solution-visual-studio/
+https://anceret-matthieu.fr/2018/01/16/csharp-bonnes-pratiques/
+https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-1.1/4xebs4k0(v%3dvs.71)
+https://framablog.org/2009/11/21/commentaires-code-source-programmation/

@@ -1,0 +1,7 @@
+LINQ // SQLite
+SHA2 pour chiffrer pwd
+
+
+Solution : 
+Partie application WPF
+Partie DLL 

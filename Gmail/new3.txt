@@ -1,0 +1,24 @@
+TABLE :
+
+--------- Utilisateurs -------------------
+- ID (key primary)
+- pwd
+- Nom
+- Prénom
+- Mail
+
+
+--------- Recettes --------------------
+- ID (key primary)
+- Nom
+- Liste ingrédients
+- Nbre de personnes 
+- Difficulté
+
+--------- Ingrédients ------------------
+- ID (key primary)
+- Nom
+- Allergène
+- Date de péremption
+
+

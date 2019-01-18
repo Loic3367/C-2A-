@@ -17,9 +17,9 @@ namespace WpfApp1
     /// <summary>
     /// Logique d'interaction pour Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class MainPage : Window
     {
-        public Window1()
+        public MainPage()
         {
             InitializeComponent();
         }

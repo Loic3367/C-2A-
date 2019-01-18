@@ -18,9 +18,9 @@ namespace WpfApp1
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
 
@@ -52,7 +52,7 @@ namespace WpfApp1
             else {
                 pwdInput = this.inputPwd.Text;
             }
-            Window1 newWindow = new Window1();
+            MainPage newWindow = new MainPage();
             newWindow.Show();
             Application.Current.MainWindow = newWindow;
             this.Close();

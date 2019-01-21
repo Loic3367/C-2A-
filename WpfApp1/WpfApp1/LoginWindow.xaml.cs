@@ -32,8 +32,6 @@ namespace WpfApp1
             string identifiantInput;
             string pwdInput;
 
-
-
             if (String.IsNullOrWhiteSpace(Identifiant.Text) == true)
             {
                 MessageBox.Show("Veuillez entrer un identifiant");
@@ -52,9 +50,12 @@ namespace WpfApp1
             else {
                 pwdInput = this.inputPwd.Text;
             }
+            /* Méthode pour ouvrir une nouvelle page et la définir en tant que Main page, puis fermer l'autre
             MainPage newWindow = new MainPage();
             newWindow.Show();
             Application.Current.MainWindow = newWindow;
+            this.Close();
+            */
             this.Close();
         }
     }

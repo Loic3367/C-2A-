@@ -22,6 +22,8 @@ namespace WpfApp1
         public MainPage()
         {
             InitializeComponent();
+            LoginWindow myLogWindow = new LoginWindow();
+            myLogWindow.Show();
         }
     }
 }

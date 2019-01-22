@@ -59,3 +59,4 @@ C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\EntityFramewo
 C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\System.Data.SQLite.xml
 C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\SQLitePCLRaw.core.dll

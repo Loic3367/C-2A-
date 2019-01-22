@@ -8,11 +8,32 @@
         Title="MainPage" Height="450" Width="800">
     <Grid>
         <TabControl>
-        <TabItem Header="General">
-            <Label Content="Content goes here..." />
-        </TabItem>
-        <TabItem Header="Security" />
-        <TabItem Header="Details" />
+            <TabItem Header="Accueil">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Bienvenue sur le livre de recettes de Guld !"/>
+                    <Label Content="Dernière recette utilisé" />
+                    <Label Content="Recette mieux notée/Dernière recette ajoutée" />
+                    <Label Content="Recette du Jour" />
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Recettes" />
+            <TabItem Header="Ingrédients" />
         </TabControl>
     </Grid>
 </Window>

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Xml.Linq;
 using System.Data.Linq;
+using System.Diagnostics;
 
 namespace WpfApp1
 {
@@ -29,7 +30,7 @@ namespace WpfApp1
             myLogWindow.Show();
             //Grid grid = new Grid();
             //Grid.SetColumn()
-            SQLiteConnection conn = new SQLiteConnection(@"Data Source=C:\Users\adai103\Documents\Projet_DotNet\WpfApp1\DataBase.db");
+            SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db");
             conn.Open();
             DataContext db = new DataContext(conn);
 
@@ -48,13 +49,24 @@ namespace WpfApp1
                 where ing.Nom == "Tomates"
                 select ing;
             */
-            
+
             foreach (var ing in scoreQuery)
             {
-                Console.WriteLine("id = {0}, City = {1}", ing.Nom, ing.UniteMesure);
+                Debug.Print($"id = {ing.Nom}, Mesure ? = {ing.UniteMesure}, date = {ing.DatePeremption}");
             }
-                
-
+            /*
+             * CETTE SALOPERIE SORT DU SQL NON STANDART AVEC
+             * DES PUTAINS DE CROCHETS POUR ECHAPER LES NOM AU LIEU DES DOUBLES6QUOTES
+             * ET SCOPE8IDENTITY ALORS QUE LE CONSTRUCTEUR PREND N4IMPRORTEQUELLE
+             * IDBCONNECTION !!!!!!!!!!!!!!!!!!!
+            db.Log = Console.Error;
+            Customers.InsertAllOnSubmit(new Ingredients[]
+            {
+                new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
+                new Ingredients() { Nom = "Calvados 2", DatePeremption  = new DateTime(1000000000000, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
+            });
+            db.SubmitChanges(ConflictMode.FailOnFirstConflict);
+            */
             /*
             Ingredients _ingredient = new Ingredients();
             _ingredient.Nom = "Tomates";

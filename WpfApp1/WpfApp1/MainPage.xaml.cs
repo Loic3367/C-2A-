@@ -38,7 +38,7 @@ namespace WpfApp1
 
             // Get a typed table to run queries.
             Table<Ingredients> Customers = db.GetTable<Ingredients>();
-
+            /*
             IEnumerable<Ingredients> scoreQuery =
                 from score in Customers
                 where score.Nom == "Tomates"
@@ -49,24 +49,30 @@ namespace WpfApp1
                 where ing.Nom == "Tomates"
                 select ing;
             */
-
+            /*
             foreach (var ing in scoreQuery)
             {
                 Debug.Print($"id = {ing.Nom}, Mesure ? = {ing.UniteMesure}, date = {ing.DatePeremption}");
             }
-            /*
-             * CETTE SALOPERIE SORT DU SQL NON STANDART AVEC
-             * DES PUTAINS DE CROCHETS POUR ECHAPER LES NOM AU LIEU DES DOUBLES6QUOTES
-             * ET SCOPE8IDENTITY ALORS QUE LE CONSTRUCTEUR PREND N4IMPRORTEQUELLE
-             * IDBCONNECTION !!!!!!!!!!!!!!!!!!!
+            */
+            //
+            // * CETTE SALOPERIE SORT DU SQL NON STANDART AVEC
+            // * DES PUTAINS DE CROCHETS POUR ECHAPER LES NOM AU LIEU DES DOUBLES6QUOTES
+            // * ET SCOPE8IDENTITY ALORS QUE LE CONSTRUCTEUR PREND N4IMPRORTEQUELLE
+            // * IDBCONNECTION !!!!!!!!!!!!!!!!!!!
             db.Log = Console.Error;
-            Customers.InsertAllOnSubmit(new Ingredients[]
+            //Customers.InsertAllOnSubmit(new Ingredients[]
+            Ingredients test = new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres };
+            Customers.InsertOnSubmit(test);
+            /*
+            Customers.InsertOnSubmit(new Ingredients[]
             {
                 new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
                 new Ingredients() { Nom = "Calvados 2", DatePeremption  = new DateTime(1000000000000, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
             });
-            db.SubmitChanges(ConflictMode.FailOnFirstConflict);
             */
+            db.SubmitChanges();
+            
             /*
             Ingredients _ingredient = new Ingredients();
             _ingredient.Nom = "Tomates";

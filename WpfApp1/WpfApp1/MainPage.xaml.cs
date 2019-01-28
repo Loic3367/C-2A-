@@ -28,58 +28,44 @@ namespace WpfApp1
             InitializeComponent();
             LoginWindow myLogWindow = new LoginWindow();
             myLogWindow.Show();
-            //Grid grid = new Grid();
-            //Grid.SetColumn()
+
+            //Le bon constructeur du DateTime est celui-ci dessous.
+            Fonction.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
+            
+
             SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db");
             conn.Open();
             DataContext db = new DataContext(conn);
-
-            //var test = db.GetTable<Ingredients>();
-
-            // Get a typed table to run queries.
             Table<Ingredients> Customers = db.GetTable<Ingredients>();
-            /*
+
             IEnumerable<Ingredients> scoreQuery =
                 from score in Customers
-                where score.Nom == "Tomates"
+                    //where score.Nom == "Tomates"
                 select score;
-            /* Query for customers from London.
-            var query =
-                from ing in Customers
-                where ing.Nom == "Tomates"
-                select ing;
-            */
-            /*
             foreach (var ing in scoreQuery)
             {
+                Debug.Print("Date" + ing.DatePeremption);
                 Debug.Print($"id = {ing.Nom}, Mesure ? = {ing.UniteMesure}, date = {ing.DatePeremption}");
             }
-            */
-            //
-            // * CETTE SALOPERIE SORT DU SQL NON STANDART AVEC
-            // * DES PUTAINS DE CROCHETS POUR ECHAPER LES NOM AU LIEU DES DOUBLES6QUOTES
-            // * ET SCOPE8IDENTITY ALORS QUE LE CONSTRUCTEUR PREND N4IMPRORTEQUELLE
-            // * IDBCONNECTION !!!!!!!!!!!!!!!!!!!
-            db.Log = Console.Error;
-            //Customers.InsertAllOnSubmit(new Ingredients[]
-            Ingredients test = new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres };
-            Customers.InsertOnSubmit(test);
+
+            
+
             /*
-            Customers.InsertOnSubmit(new Ingredients[]
+            //Ingredients test = new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres };
+            //Customers.InsertOnSubmit(test);    
+            Customers.InsertAllOnSubmit(new Ingredients[]
             {
                 new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
                 new Ingredients() { Nom = "Calvados 2", DatePeremption  = new DateTime(1000000000000, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
-            });
-            */
+            }); 
             db.SubmitChanges();
-            
-            /*
-            Ingredients _ingredient = new Ingredients();
-            _ingredient.Nom = "Tomates";
-            _ingredient.DatePeremption = new DateTime(2019, 1, 22);
-            _ingredient.UniteMesure = Ingredients.TypeIngredient.unité.ToString();
             */
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutRecette newPage = new AjoutRecette();
+            newPage.Show();
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Data.Linq.Mapping;
 
 namespace WpfApp1
 {
-    enum TypeIngredient { A_L_Unitée, litres, grammes }
+    public enum TypeIngredient { A_L_Unitée, litres, grammes }
     [Table(Name = "Ingredients")]
-    class Ingredients
+    public class Ingredients
     {
         [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
         public int Id { get; set; }
@@ -22,8 +22,8 @@ namespace WpfApp1
         private long _datePeremption;
         public DateTime DatePeremption
         {
-            get => Function.SQLTimetoDateTime(this._datePeremption);
-            set => this._datePeremption = Function.DateTimeToSQLTime(value);
+            get => Fonction.SQLTimetoDateTime(this._datePeremption);
+            set => this._datePeremption = Fonction.DateTimeToSQLTime(value);
         }
         [Column(Name = "UniteMesure", DbType = "INT", CanBeNull = false)]
         public TypeIngredient UniteMesure { get; set; }

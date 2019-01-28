@@ -32,7 +32,28 @@
                     
                 </Grid>
             </TabItem>
-            <TabItem Header="Recettes" />
+            <TabItem Header="Recettes">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Ajouter une recette :"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Push me" Click="Button_Click" ></Button>
+                    
+                </Grid>
+            </TabItem>
+                     
             <TabItem Header="Ingrédients" />
         </TabControl>
     </Grid>

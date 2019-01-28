@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp1.AjoutRecette"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="AjoutRecette" Height="450" Width="720">
+    
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="2" Grid.ColumnSpan="3" Content="Veuillez compléter les champs suivants afin de créer votre recette"/>
+            <Label Grid.Column="1" Grid.Row="1" Content="Nom de la recette :" Margin="5"/>
+            <TextBox Grid.Column="2" Grid.Row="1" Margin="5"/>
+            <Label Grid.Column="1" Grid.Row="2" Content="Difficulté :" Margin="5"/>
+            <ComboBox Grid.Column="2" Grid.Row="2" x:Name="cbDifficulte" Margin="5"/>
+            <!-- ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding Path=CurrentEffectStyle}-->
+            <Label Grid.Column="1" Grid.Row="3" Content="Temps de préparation (min) :" Margin="5"/>
+            <TextBox Grid.Column="2" Grid.Row="3" Margin="5"/>
+            <Label Grid.Column="3" Grid.Row="1" Content="Temps de cuisson (min) :" Margin="5"/>
+            <Label Grid.Column="3" Grid.Row="2" Content="Nombre de personnes :" Margin="5"/>
+            <ComboBox Grid.Column="4" Grid.Row="2" Margin="5">
+                <ComboBoxItem Name="pers2">2</ComboBoxItem>
+                <ComboBoxItem Name="pers3">3</ComboBoxItem>
+                <ComboBoxItem Name="pers4">4</ComboBoxItem>
+                <ComboBoxItem Name="pers5">5</ComboBoxItem>
+            </ComboBox>
+            <Label Grid.Column="3" Grid.Row="3" Content="Coût" Margin="5"/>
+            <ComboBox Grid.Column="4" Grid.Row="3" Margin="5" x:Name="cbCout"/>
+
+            <Label Grid.Column="1" Grid.Row="4" Content="Ingrédients" Margin="5"/>
+            <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="5"/>
+        </Grid>
+    </Grid>
+</Window>

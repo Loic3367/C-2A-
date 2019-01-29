@@ -80,22 +80,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AjoutRecette.xaml.cs">
-      <DependentUpon>AjoutRecette.xaml</DependentUpon>
+    <Compile Include="Forms\AddIngredient.xaml.cs">
+      <DependentUpon>AddIngredient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="Etapes.cs" />
-    <Compile Include="Fonction.cs" />
-    <Compile Include="Ingredients.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Forms\AddRecipes.xaml.cs">
+      <DependentUpon>AddRecipes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Class\DataAccess.cs" />
+    <Compile Include="Class\Steps.cs" />
+    <Compile Include="Class\Function.cs" />
+    <Compile Include="Class\Ingredients.cs" />
+    <Compile Include="Forms\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Recettes.cs" />
-    <Page Include="AjoutRecette.xaml">
+    <Compile Include="Class\Recipes.cs" />
+    <Page Include="Forms\AddIngredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="Forms\AddRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -103,11 +110,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
+    <Compile Include="Forms\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MainPage.xaml">
+    <Page Include="Forms\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

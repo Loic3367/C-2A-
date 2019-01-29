@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public class Etapes
+    public class Steps
     {
-        public int Numero { get; set; }
+        public int Number { get; set; }
         public string Description { get; set; }
     }
 }

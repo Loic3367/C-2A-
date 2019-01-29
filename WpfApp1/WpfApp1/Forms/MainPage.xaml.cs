@@ -30,7 +30,7 @@ namespace WpfApp1
             myLogWindow.Show();
 
             //Le bon constructeur du DateTime est celui-ci dessous.
-            Fonction.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
+            Function.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
             
 
             SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db");
@@ -44,8 +44,7 @@ namespace WpfApp1
                 select score;
             foreach (var ing in scoreQuery)
             {
-                Debug.Print("Date" + ing.DatePeremption);
-                Debug.Print($"id = {ing.Nom}, Mesure ? = {ing.UniteMesure}, date = {ing.DatePeremption}");
+                Debug.Print($"id = {ing.Name}, Mesure ? = {ing.MeasureUnit}, date = {ing.ExpirationDate}");
             }
 
             
@@ -64,7 +63,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AjoutRecette newPage = new AjoutRecette();
+            AddRecipes newPage = new AddRecipes();
             newPage.Show();
         }
     }

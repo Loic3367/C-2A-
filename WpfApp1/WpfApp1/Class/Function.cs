@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    class Fonction
+    class Function
     {
 
         public static long DateTimeToSQLTime(DateTime dt)

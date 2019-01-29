@@ -25,7 +25,7 @@ namespace WpfApp1
                 select score;
             foreach (var ing in scoreQuery)
             {
-                Debug.Print($"id = {ing.Nom}, Mesure ? = {ing.UniteMesure}, date = {ing.DatePeremption}");
+                Debug.Print($"id = {ing.Name}, Mesure ? = {ing.MeasureUnit}, date = {ing.ExpirationDate}");
             }
           
         }
@@ -35,7 +35,7 @@ namespace WpfApp1
 
         }
 
-        private void insertRecipes()
+        private void insertRecipe()
         {
 
         }

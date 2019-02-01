@@ -33,6 +33,7 @@
         <Label Grid.Column="3" Grid.Row="1" Content="Unité de mesure"/>
         <ComboBox Grid.Column="4" Grid.Row="1" x:Name="cbMeasure"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Date de péremption" />
-        <TextBox Grid.Row="2" Grid.Column="2" x:Name="tbExpirationDate" Text="StringFormat=d"/>
+        <DatePicker x:Name="ExpirationDate" Grid.Column="2" Grid.Row="2" />
+        <Button Grid.Column="2" Grid.Row="8" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder l'ingrédients" Click="AddIngredient_Click"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WpfApp1
 {
     public enum Difficultee { Très_facile, Facile, Moyen, Difficile, Très_difficile }
-    enum Cout {Bon_Marché, Coût_Moyen, Chère }
+    public enum Cout {Bon_Marché, Coût_Moyen, Chère }
     enum Categorie { Italien,Français,Américain,Epicé,Asiatique, Végétarien,Vegan,Méditeranéen}
     //Structures pour gérer les strings des enums
     #region
@@ -64,15 +64,15 @@ namespace WpfApp1
     {
         public List<Ingredients> ListIngredients { get; set; }
         public List<Steps> ListSteps { get; set; }
-        public int Difficulty { get; set; }
+        public Difficultee Difficulty { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
         public int NbrPeople { get; set; }
-        public int Cost { get; set; }
+        public Cout Cost { get; set; }
         public string Categorie { get; set; }
 
         public Recipes() { }
-        public Recipes(List<Ingredients> myIngredients, List<Steps> mySteps,int Diff, int TimePrep, int TimeCook, int PeopleNbr, int Costs)
+        public Recipes(List<Ingredients> myIngredients, List<Steps> mySteps, Difficultee Diff, int TimePrep, int TimeCook, int PeopleNbr, Cout Costs)
         {
             this.ListIngredients = myIngredients;
             this.ListSteps = mySteps;

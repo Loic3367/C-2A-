@@ -54,5 +54,10 @@ namespace WpfApp1
         }
         [Column(Name = "UniteMesure", DbType = "INT", CanBeNull = false)]
         public MeasureIngredient MeasureUnit { get; set; }
+
+        public Ingredients(String Name,DateTime ExpiraDate, MeasureIngredient Unit)
+        {
+
+        }
     }
 }

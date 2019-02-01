@@ -50,5 +50,15 @@ namespace WpfApp1
             AddIngredient addIngredient = new AddIngredient();
             addIngredient.ShowDialog();
         }
+
+        private void ButtonAddRecipes_Click(object sender, RoutedEventArgs e)
+        {
+            Recipes recipe = new Recipes();
+            recipe.CookTime = Int32.Parse(CookTime.Text);
+            recipe.Cost = (Cout)cbCout.SelectedItem;
+            recipe.Difficulty = (Difficultee)cbDifficulte.SelectedItem;
+            recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
+
+        }
     }
 }

@@ -36,6 +36,14 @@ namespace WpfApp1
                 ret.Add(new Difficulty() { value = diff });
             return ret;
         }
+
+        static IReadOnlyList<Category> getCategories()
+        {
+            List<Category> ret = new List<Category>();
+            foreach (Categorie cate in Enum.GetValues(typeof(Categorie)))
+                ret.Add(new Category() { value = cate });
+            return ret;
+        }
         #endregion
         public AddRecipes()
         {
@@ -43,6 +51,7 @@ namespace WpfApp1
             InitializeComponent();
             cbDifficulte.ItemsSource = GetDifficulty();
             cbCout.ItemsSource = GetCosts();
+            cbCategories.ItemsSource = getCategories();
         }
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
@@ -55,10 +64,15 @@ namespace WpfApp1
         {
             Recipes recipe = new Recipes();
             recipe.CookTime = Int32.Parse(CookTime.Text);
-            recipe.Cost = (Cout)cbCout.SelectedItem;
-            recipe.Difficulty = (Difficultee)cbDifficulte.SelectedItem;
+            recipe.Cost = (Cost)cbCout.SelectedItem;
+            recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
             recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
-
+            recipe.Categorie = (Category)cbCategories.SelectedItem;
+            Point newPoint = new Point(this.Top, this.Left);
+            
+            AddSteps newListSteps = new AddSteps(recipe,newPoint);
+            this.Close();
+            newListSteps.ShowDialog();
         }
     }
 }

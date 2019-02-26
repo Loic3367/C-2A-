@@ -9,10 +9,10 @@ namespace WpfApp1
 {
     public enum Difficultee { Très_facile, Facile, Moyen, Difficile, Très_difficile }
     public enum Cout {Bon_Marché, Coût_Moyen, Chère }
-    enum Categorie { Italien,Français,Américain,Epicé,Asiatique, Végétarien,Vegan,Méditeranéen}
+    public enum Categorie { Italien,Français,Américain,Asiatique, Méditeranéen }//Epicé Vegan Végétarien
     //Structures pour gérer les strings des enums
     #region
-    struct Cost
+    public struct Cost
     {
         public Cout valeur;
 
@@ -36,7 +36,7 @@ namespace WpfApp1
 
         }
     }
-    struct Difficulty
+    public struct Difficulty
     {
         public Difficultee value;
         public override string ToString()
@@ -59,28 +59,53 @@ namespace WpfApp1
             }
         }
     }
+
+    public struct Category
+    {
+        public Categorie value;
+        public override string ToString()
+        {
+            switch(value)
+            {
+                case Categorie.Américain:
+                    return "Nourriture américaine";
+                case Categorie.Asiatique:
+                    return "Nourriture asiatique";
+                case Categorie.Français:
+                    return "Nourriture française";
+                case Categorie.Italien:
+                    return "Nourriture italienne";
+                case Categorie.Méditeranéen:
+                    return "Nourriture méditerranéenne";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value));
+
+            }
+        }
+    }
     #endregion
      public class Recipes
     {
         public List<Ingredients> ListIngredients { get; set; }
         public List<Steps> ListSteps { get; set; }
-        public Difficultee Difficulty { get; set; }
+        public Difficulty Difficulty { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
         public int NbrPeople { get; set; }
-        public Cout Cost { get; set; }
-        public string Categorie { get; set; }
+        public Cost Cost { get; set; }
+        public Category Categorie { get; set; }
 
         public Recipes() { }
-        public Recipes(List<Ingredients> myIngredients, List<Steps> mySteps, Difficultee Diff, int TimePrep, int TimeCook, int PeopleNbr, Cout Costs)
+        public Recipes(List<Ingredients> myIngredients, List<Steps> mySteps, Difficulty myDiff, int myTimePrep, int myTimeCook, int myPeopleNbr, Cost myCosts,Category myCategories)
         {
             this.ListIngredients = myIngredients;
             this.ListSteps = mySteps;
-            this.Difficulty = Diff;
-            this.PrepTime = TimePrep;
-            this.CookTime = TimeCook;
-            this.NbrPeople = PeopleNbr;
-            this.Cost = Costs;
+            this.Difficulty = myDiff;
+            this.PrepTime = myTimePrep;
+            this.CookTime = myTimeCook;
+            this.NbrPeople = myPeopleNbr;
+            this.Cost = myCosts;
+            this.Categorie = myCategories;
         }
     }
 

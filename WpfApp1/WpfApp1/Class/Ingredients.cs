@@ -36,8 +36,6 @@ namespace WpfApp1
         }
     }
     #endregion
-
-
     [Table(Name = "Ingredients")]
     public class Ingredients
     {
@@ -54,10 +52,15 @@ namespace WpfApp1
         }
         [Column(Name = "UniteMesure", DbType = "INT", CanBeNull = false)]
         public MeasureIngredient MeasureUnit { get; set; }
-
-        public Ingredients(String Name,DateTime ExpiraDate, MeasureIngredient Unit)
+        public Ingredients()
         {
 
+        }
+        public Ingredients(String myName,DateTime myExpiraDate, MeasureIngredient myUnit)
+        {
+            this.Name = myName;
+            this.ExpirationDate = myExpiraDate;
+            this.MeasureUnit = myUnit;
         }
     }
 }

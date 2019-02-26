@@ -80,6 +80,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Forms\AddSteps.xaml.cs">
+      <DependentUpon>AddSteps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddIngredient.xaml.cs">
       <DependentUpon>AddIngredient.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,16 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
+    <Compile Include="UCAddRecipes.xaml.cs">
+      <DependentUpon>UCAddRecipes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCAddSteps.xaml.cs">
+      <DependentUpon>UCAddSteps.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Forms\AddSteps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\AddIngredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +128,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCAddRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCAddSteps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

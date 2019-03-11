@@ -68,9 +68,9 @@ namespace WpfApp1
             recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
             recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
             recipe.Categorie = (Category)cbCategories.SelectedItem;
-            Point newPoint = new Point(this.Top, this.Left);
             
-            AddSteps newListSteps = new AddSteps(recipe,newPoint);
+            
+            AddSteps newListSteps = new AddSteps(recipe);
             this.Close();
             newListSteps.ShowDialog();
         }

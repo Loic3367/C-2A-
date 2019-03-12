@@ -1,0 +1,17 @@
+20/03/2019 : rendu dossier d’analyse comprenant une note de cadrage, un tableau de fonctionnalités prévues de l’application, un 
+schéma relationnel BDD + un dictionnaire des données, un diagramme objets UML 
+
+
+Note de cadrage:
+
+Guld recipes est un gestionnaire de recettes. Il permet rapidement et facilement de créer, partager et suivre ses recettes ou celles
+des autres utilisateurs. Guld recipes permet de rechercher des recettes par leurs noms, les ingrédients qui la contiennent ou par type
+de recettes (recette italienne, française etc.). Guld recipes permet aussi de gérer les ingrédients indépendamment des recettes.
+
+Schéma relationnel BDD
+
+INGREDIENT[ID,Nom,DatePeremption]
+RECETTES[ID,Nom,TempsCuisson,TempsPreparation,NombrePersonne,ListeTaches,ListeIngredients]
+Personne[ID,Nom,Droits]
+
+Dictionnaire des données

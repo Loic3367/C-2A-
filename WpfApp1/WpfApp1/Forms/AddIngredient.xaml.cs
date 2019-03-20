@@ -34,8 +34,9 @@ namespace WpfApp1
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            Ingredients newIngredient = new Ingredients(NameIngredient.Text, ExpirationDate.DisplayDate, (MeasureIngredient)cbMeasure.SelectedItem);
-           
+            Ingredients newIngredient = new Ingredients(NameIngredient.Text, ExpirationDate.DisplayDate, (MeasureIngredient)cbMeasure.SelectedIndex);
+
+            Function.InsertIngredient(newIngredient);
             this.Close();
         }
     }

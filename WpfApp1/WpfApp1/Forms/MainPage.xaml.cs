@@ -32,31 +32,25 @@ namespace WpfApp1
             //Le bon constructeur du DateTime est celui-ci dessous.
             Function.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
             
-
+            
             SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db");
             conn.Open();
             DataContext db = new DataContext(conn);
             Table<Ingredients> Customers = db.GetTable<Ingredients>();
-
-            IEnumerable<Ingredients> scoreQuery =
-                from score in Customers
-                    //where score.Nom == "Tomates"
-                select score;
+            
+            IEnumerable<Ingredients> scoreQuery = from score in Customers //where score.Nom == "Tomates" 
+                                                  select score;
             foreach (var ing in scoreQuery)
             {
-                Debug.Print($"id = {ing.Name}, Mesure ? = {ing.MeasureUnit}, date = {ing.ExpirationDate}");
+                Debug.Print($"id = {ing.Name}");//, Mesure ? = {ing.MeasureUnit}, date = {ing.ExpirationDate}");
             }
-
+            
             
 
             /*
-            //Ingredients test = new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres };
-            //Customers.InsertOnSubmit(test);    
-            Customers.InsertAllOnSubmit(new Ingredients[]
-            {
-                new Ingredients() { Nom = "Calvados", DatePeremption = new DateTime(999999999999, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
-                new Ingredients() { Nom = "Calvados 2", DatePeremption  = new DateTime(1000000000000, DateTimeKind.Local), UniteMesure = TypeIngredient.litres },
-            }); 
+            Ingredients test = new Ingredients() { Name = "Calvados", ExpirationDate = new DateTime(999999999999, DateTimeKind.Local), MeasureUnit = MeasureIngredient.litres };
+            Customers.InsertOnSubmit(test);    
+            
             db.SubmitChanges();
             */
         }

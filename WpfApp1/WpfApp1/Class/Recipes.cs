@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Linq.Mapping;
 
 
 namespace WpfApp1
@@ -86,13 +87,21 @@ namespace WpfApp1
     #endregion
      public class Recipes
     {
+        [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
+        public int ID { get; set; }
         public List<Ingredients> ListIngredients { get; set; }
         public List<Steps> ListSteps { get; set; }
+        [Column(Name = "Difficulte", DbType = "BIGINT", CanBeNull = false)]
         public Difficulty Difficulty { get; set; }
+        [Column(Name = "TempsPreparation", DbType = "BIGINT", CanBeNull = false)]
         public int PrepTime { get; set; }
+        [Column(Name = "TempsCuisson", DbType = "BIGINT", CanBeNull = false)]
         public int CookTime { get; set; }
+        [Column(Name = "NombrePersonne", DbType = "BIGINT", CanBeNull = false)]
         public int NbrPeople { get; set; }
+        [Column(Name = "Cout", DbType = "BIGINT", CanBeNull = false)]
         public Cost Cost { get; set; }
+        [Column(Name = "Categorie", DbType = "BIGINT", CanBeNull = false)]
         public Category Categorie { get; set; }
 
         public Recipes() { }

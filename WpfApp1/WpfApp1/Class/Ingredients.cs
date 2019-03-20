@@ -12,7 +12,7 @@ namespace WpfApp1
 {
     #region
     public enum MeasureIngredient { A_L_Unitée, litres, grammes }
-    struct IngredientMeasure
+    public struct IngredientMeasure
     {
         public MeasureIngredient IngreType;
 
@@ -39,18 +39,18 @@ namespace WpfApp1
     [Table(Name = "Ingredients")]
     public class Ingredients
     {
-        [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
+        [Column(Name = "Id", IsPrimaryKey = true, DbType = "BIGINT", IsDbGenerated = true, CanBeNull = false)]
         public int Id { get; set; }
-        [Column(Name = "Nom", DbType = "VarChar(30)", CanBeNull = false)]
+        [Column(Name = "Nom", DbType = "Text", CanBeNull = false)]
         public String Name { get; set; }
         [Column(Name = "DatePeremption", DbType = "BIGINT", CanBeNull = false)]
-        private long _expirationDate;
+        public long _expirationDate { get; set; }
         public DateTime ExpirationDate
         {
             get => Function.SQLTimetoDateTime(this._expirationDate);
             set => this._expirationDate = Function.DateTimeToSQLTime(value);
         }
-        [Column(Name = "UniteMesure", DbType = "INT", CanBeNull = false)]
+        [Column(Name = "UniteMesure", DbType = "BIGINT", CanBeNull = false)]
         public MeasureIngredient MeasureUnit { get; set; }
         public Ingredients()
         {

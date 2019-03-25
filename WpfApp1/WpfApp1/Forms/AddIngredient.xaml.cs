@@ -36,7 +36,7 @@ namespace WpfApp1
         {
             Ingredients newIngredient = new Ingredients(NameIngredient.Text, ExpirationDate.DisplayDate, (MeasureIngredient)cbMeasure.SelectedIndex);
 
-            Function.InsertIngredient(newIngredient);
+            DataAccess.InsertIngredient(newIngredient);
             this.Close();
         }
     }

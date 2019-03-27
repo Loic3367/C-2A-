@@ -26,27 +26,13 @@ namespace WpfApp1
         public MainPage()
         {
             InitializeComponent();
-            LoginWindow myLogWindow = new LoginWindow();
-            myLogWindow.Show();
-
-            //Le bon constructeur du DateTime est celui-ci dessous.
-            Function.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
-
-            DataAccess.SelectInBDD();
-            
-
-            /*
-            Ingredients test = new Ingredients() { Name = "Calvados", ExpirationDate = new DateTime(999999999999, DateTimeKind.Local), MeasureUnit = MeasureIngredient.litres };
-            Customers.InsertOnSubmit(test);    
-            
-            db.SubmitChanges();
-            */
+            //LoginWindow myLogWindow = new LoginWindow();
+            //myLogWindow.Show();          
+            //Function.DateTimeToSQLTime(new DateTime(2019, 01, 28,00,00,00, DateTimeKind.Local));
+            //DataAccess.SelectInBDD();
+            AddSteps addSteps = new AddSteps();
+            addSteps.Show();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AddRecipes newPage = new AddRecipes();
-            newPage.Show();
-        }
+        
     }
 }

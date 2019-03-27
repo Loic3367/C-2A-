@@ -71,7 +71,6 @@ C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\S
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\System.Data.SQLite.xml
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\GuldRecipies.csprojAssemblyReference.cache
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\AddSteps.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\AddIngredient.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\AddRecipes.g.cs
@@ -97,3 +96,14 @@ C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\G
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTasks.baml
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UCTabIngredient.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCIngredients.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabAccueil.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabRecette.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UCTabIngredient.baml
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCIngredients.baml
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabAccueil.baml
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabRecette.baml
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\GuldRecipies.csprojAssemblyReference.cache
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Images.baml

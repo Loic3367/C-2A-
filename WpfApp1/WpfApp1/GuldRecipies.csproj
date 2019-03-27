@@ -89,6 +89,18 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
+    <Compile Include="UCTabIngredient.xaml.cs">
+      <DependentUpon>UCTabIngredient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UCIngredients.xaml.cs">
+      <DependentUpon>UCIngredients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UCTabAccueil.xaml.cs">
+      <DependentUpon>UCTabAccueil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UCTabRecette.xaml.cs">
+      <DependentUpon>UCTabRecette.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UCSteps.xaml.cs">
       <DependentUpon>UCSteps.xaml</DependentUpon>
     </Compile>
@@ -120,6 +132,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCTabIngredient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UCIngredients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UCTabAccueil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UCTabRecette.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrowbas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />

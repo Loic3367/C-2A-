@@ -5,53 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainPage" Height="450" Width="800">
+        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="660" Width="1200">
     <Grid>
         <TabControl>
             <TabItem Header="Accueil">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="40" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="40" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Bienvenue sur le livre de recettes de Guld !"/>
-                    <Label Content="Dernière recette utilisé" />
-                    <Label Content="Recette mieux notée/Dernière recette ajoutée" />
-                    <Label Content="Recette du Jour" />
-                    
-                </Grid>
+                <local:UCTabAccueil></local:UCTabAccueil>
             </TabItem>
             <TabItem Header="Recettes">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="40" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="1" Content="Ajouter une recette :"/>
-                    <Button Grid.Column="1" Grid.Row="1" Content="Push me" Click="Button_Click" ></Button>
-                    
-                </Grid>
+                <local:UCTabRecette/>
             </TabItem>
                      
             <TabItem Header="Ingrédients" />

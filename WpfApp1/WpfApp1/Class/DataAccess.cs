@@ -18,33 +18,17 @@ namespace WpfApp1
         {
             List<String> ImportedFiles = new List<string>();
             using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
-            {
-                
+            {            
                 conn.Open();
-                string stm = "SELECT * FROM Ingredients";
-                
+                string stm = "SELECT * FROM Ingredients";        
                 using (SQLiteCommand cmd = new SQLiteCommand(stm, conn))
                 {
                     SQLiteDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                         Console.WriteLine("Id :" + rdr["Id"]);
-                    /*
-                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            Console.WriteLine(rdr.GetInt32(0) + " "
-                                + rdr.GetString(1) + " " + rdr.GetInt32(2));
-                        }
-                    }
-                    */
-                }
-                
-                
-            }
-            
-
-          
+                    
+                }              
+            }     
         }
 
         public static string InsertIngredient(Ingredients ingre)
@@ -69,12 +53,38 @@ namespace WpfApp1
                 }
 
             }
-            return "Ingrédients bien ajoutées";
+            return "Ingrédients bien ajoutés";
         }
 
-        private void insertRecipe()
+        private void insertRecipe(Recipes recette)
         {
+            using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
+            {
+                String query = "INSERT INTO Recette (Id,Nom,TempsCuisson,TempsPreparation, NombrePersonne,Cout,Categorie, DateCreation, Difficulte)" +
+                    " VALUES (@id,@name,@tempscuisson, @tempspreparation,@nombrepersonne,@cout,@categorie,@datecreation,@difficulte)";
 
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@id", 2);
+                    command.Parameters.AddWithValue("@name", recette.Nom);
+                    command.Parameters.AddWithValue("@tempscuisson", recette.CookTime);
+                    command.Parameters.AddWithValue("@tempspreparation", recette.PrepTime);
+                    command.Parameters.AddWithValue("@nombrepersonne", recette.NbrPeople);
+                    command.Parameters.AddWithValue("@cout", recette.Cost);
+                    command.Parameters.AddWithValue("@categorie", recette.Categorie);
+                    //command.Parameters.AddWithValue("@datecreation", recette.);
+                    command.Parameters.AddWithValue("@difficulte", recette.Difficulty);
+
+                    conn.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+                }
+
+            }
+            
         }
     }
 }

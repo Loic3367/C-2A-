@@ -20,9 +20,28 @@ namespace WpfApp1
     /// </summary>
     public partial class UCSteps : System.Windows.Controls.UserControl
     {
+        List<Steps> listSteps = new List<Steps>();
+        int NumSteps;
         public UCSteps()
         {
             InitializeComponent();
+            Steps steps = new Steps();
+            NumSteps = 1;
+            steps.Number = NumSteps;
+            lbl1.Content = NumSteps;
+            steps.Description = tb1.Text;
+            NumSteps++;
+
+            Image image = new Image();
+            var dir = AppDomain.CurrentDomain.GetAssemblies();
+            //image.Source = new BitmapImage(new Uri(@"file:///..\..\Images\arrowbas.png"));
+            image.Source = new BitmapImage(new Uri(@"~..\..\Images\arrowbas.png"));
+            btnArrow.Content = image;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="AddIngredient" Height="450" Width="720">
+        Title="Ajout d'un ingrédient" Height="250" Width="720">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25"/>
@@ -22,11 +22,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+           
         </Grid.RowDefinitions>
+        
         <Label Grid.Column="0" Grid.ColumnSpan="6" Padding="115,10,0,0" Content="Veuillez compléter les champs suivants afin d'ajouter l'ingrédient à la base de données"/>
         <Label Grid.Column="1" Grid.Row="1" Content="Nom" Padding="5"/>
         <TextBox Grid.Column="2" Grid.Row="1" x:Name="NameIngredient" Padding="5"/>
@@ -34,6 +32,6 @@
         <ComboBox Grid.Column="4" Grid.Row="1" x:Name="cbMeasure"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Date de péremption" />
         <DatePicker x:Name="ExpirationDate" Grid.Column="2" Grid.Row="2" />
-        <Button Grid.Column="2" Grid.Row="8" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder l'ingrédients" Click="AddIngredient_Click"/>
+        <Button Grid.Column="2" Grid.Row="8" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder l'ingrédient" Click="AddIngredient_Click"/>
     </Grid>
 </Window>

@@ -30,12 +30,12 @@ namespace WpfApp1
         {
             InitializeComponent();
             cbMeasure.ItemsSource = GetMeasure();
+            
         }
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
             Ingredients newIngredient = new Ingredients(NameIngredient.Text, ExpirationDate.DisplayDate, (MeasureIngredient)cbMeasure.SelectedIndex);
-
             DataAccess.InsertIngredient(newIngredient);
             this.Close();
         }

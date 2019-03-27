@@ -58,6 +58,8 @@ namespace WpfApp1
         {
             AddIngredient addIngredient = new AddIngredient();
             addIngredient.ShowDialog();
+
+            UCSteps uCSteps = new UCSteps();
         }
 
         private void ButtonAddRecipes_Click(object sender, RoutedEventArgs e)

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
-7-317221714
+C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
+12-456146246
 
-17-1343787373
-181826302500
-Forms\AddSteps.xaml;Forms\AddIngredient.xaml;Forms\AddRecipes.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;UserControl\UCSteps.xaml;UserControl\UCTasks.xaml;
+21-1850780796
+181485509619
+Forms\AddSteps.xaml;Forms\AddIngredient.xaml;Forms\AddRecipes.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UCTabIngredient.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabRecette.xaml;UserControl\UCSteps.xaml;UserControl\UCTasks.xaml;
 
 False
 

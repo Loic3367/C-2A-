@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="WpfApp1.UCTabAccueil"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="25" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="25" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="250" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="250" />
+        <RowDefinition Height="25" />
+     </Grid.RowDefinitions>
+
+        <Label Grid.Column="2" Grid.ColumnSpan="4" Content="Bienvenue sur le livre de recettes de Guld !" HorizontalAlignment="Center"/>
+        <Label Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="3" HorizontalAlignment="Center"  Content="Recette du jour :" />
+        <Label Grid.Column="4" Grid.Row="3"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette utilisé" />
+        <Label Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Recette mieux notée/Dernière recette ajoutée" />
+    </Grid>
+</UserControl>

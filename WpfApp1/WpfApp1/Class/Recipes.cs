@@ -90,7 +90,7 @@ namespace WpfApp1
         [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
         public int ID { get; set; }
         public string Nom { get; set; }
-        public List<Ingredients> ListIngredients { get; set; }
+        public List<Ingredient> ListIngredients { get; set; }
         public List<Steps> ListSteps { get; set; }
         public Difficulty Difficulty { get; set; }
         public int PrepTime { get; set; } 
@@ -99,7 +99,7 @@ namespace WpfApp1
         public Cost Cost { get; set; }     
         public Category Categorie { get; set; }
         public Recipes() { }
-        public Recipes(string name,List<Ingredients> myIngredients, List<Steps> mySteps, Difficulty myDiff, int myTimePrep, int myTimeCook, int myPeopleNbr, Cost myCosts,Category myCategories)
+        public Recipes(string name,List<Ingredient> myIngredients, List<Steps> mySteps, Difficulty myDiff, int myTimePrep, int myTimeCook, int myPeopleNbr, Cost myCosts,Category myCategories)
         {
             this.Nom = name;
             this.ListIngredients = myIngredients;

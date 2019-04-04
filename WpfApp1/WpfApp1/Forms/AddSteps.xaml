@@ -5,8 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Ajouter des étapes" Height="450" Width="800">
+        Title="Ajouter des étapes" Height="600" Width="800">
     <Grid>
-        <local:UCSteps/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="25" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="0" Content="1" x:Name="lbl1"/>
+        <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="5" x:Name="tb1" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="2" x:Name="lbl2"/>
+        <TextBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="5" x:Name="tb2" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="2" Content="3" x:Name="lbl3"/>
+        <TextBox Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="5" x:Name="tb3" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="3" Content="4" x:Name="lbl4"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="5" x:Name="tb4" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="4" Content="5" x:Name="lbl5"/>
+        <TextBox Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="5" x:Name="tb5" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="5" Content="6" x:Name="lbl6"/>
+        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="5" x:Name="tb6" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="6" Content="7" x:Name="lbl7"/>
+        <TextBox Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="5" x:Name="tb7" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="7" Content="8" x:Name="lbl8"/>
+        <TextBox Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="5" x:Name="tb8" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="8" Content="9" x:Name="lbl9"/>
+        <TextBox Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="5" x:Name="tb9" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="9" Content="10" x:Name="lbl10" Margin="5"/>
+        <TextBox Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="5" x:Name="tb10" Margin="5"/>
+
+        <Button Content="Help me" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Click="addUCSteps" Margin="5"/>
     </Grid>
 </Window>

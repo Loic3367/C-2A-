@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1.UserControl
+namespace WpfApp1
 {
     /// <summary>
     /// Logique d'interaction pour UCTasks.xaml
     /// </summary>
-    public partial class UCTasks : System.Windows.Controls.UserControl
+    public partial class UCTasks : UserControl
     { 
         public UCTasks()
         {

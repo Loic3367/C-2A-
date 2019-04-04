@@ -31,7 +31,7 @@ namespace WpfApp1
             }     
         }
 
-        public static string InsertIngredient(Ingredients ingre)
+        public static string InsertIngredient(Ingredient ingre)
         {
             using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
             {

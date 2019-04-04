@@ -20,9 +20,25 @@ namespace WpfApp1
     /// </summary>
     public partial class UCIngredients : System.Windows.Controls.UserControl
     {
+        static IReadOnlyList<IngredientMeasure> GetMeasure()
+        {
+            List<IngredientMeasure> ret = new List<IngredientMeasure>();
+            foreach (MeasureIngredient cost in Enum.GetValues(typeof(MeasureIngredient)))
+                ret.Add(new IngredientMeasure() { IngreType = cost });
+            return ret;
+        }
+        Recipes rcp = new Recipes();
         public UCIngredients()
         {
             InitializeComponent();
+            cbIngreSel.ItemsSource = GetMeasure();
+        }
+
+        public UCIngredients(Recipes recipes)
+        {
+            InitializeComponent();
+            cbIngreSel.ItemsSource = GetMeasure();
+            rcp = recipes;
         }
     }
 }

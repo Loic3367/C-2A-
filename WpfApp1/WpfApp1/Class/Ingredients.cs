@@ -37,7 +37,7 @@ namespace WpfApp1
     }
     #endregion
     [Table(Name = "Ingredients")]
-    public class Ingredients
+    public class Ingredient
     {
         [Column(Name = "Id", IsPrimaryKey = true, DbType = "BIGINT", IsDbGenerated = true, CanBeNull = false)]
         public int Id { get; set; }
@@ -52,11 +52,11 @@ namespace WpfApp1
         }
         [Column(Name = "UniteMesure", DbType = "BIGINT", CanBeNull = false)]
         public MeasureIngredient MeasureUnit { get; set; }
-        public Ingredients()
+        public Ingredient()
         {
 
         }
-        public Ingredients(String myName,DateTime myExpiraDate, MeasureIngredient myUnit)
+        public Ingredient(String myName,DateTime myExpiraDate, MeasureIngredient myUnit)
         {
             this.Name = myName;
             this.ExpirationDate = myExpiraDate;

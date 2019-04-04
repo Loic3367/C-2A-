@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\adai103\Documents\2eme_année\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
-12-456146246
+10257654875
 
-21-1850780796
+191579601826
 181485509619
-Forms\AddSteps.xaml;Forms\AddIngredient.xaml;Forms\AddRecipes.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UCTabIngredient.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabRecette.xaml;UserControl\UCSteps.xaml;UserControl\UCTasks.xaml;
+Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabRecette.xaml;UserControl\UCTasks.xaml;
 
 False
 

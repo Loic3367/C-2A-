@@ -56,25 +56,23 @@ namespace WpfApp1
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            AddIngredient addIngredient = new AddIngredient();
-            addIngredient.ShowDialog();
-
-            UCSteps uCSteps = new UCSteps();
-        }
-
-        private void ButtonAddRecipes_Click(object sender, RoutedEventArgs e)
-        {
             Recipes recipe = new Recipes();
-            recipe.CookTime = Int32.Parse(CookTime.Text);
-            recipe.Cost = (Cost)cbCout.SelectedItem;
-            recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
-            recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
-            recipe.Categorie = (Category)cbCategories.SelectedItem;
-            
-            
-            AddSteps newListSteps = new AddSteps(recipe);
-            this.Close();
-            newListSteps.ShowDialog();
+            try
+            {
+                recipe.CookTime = Int32.Parse(CookTime.Text);
+                recipe.Cost = (Cost)cbCout.SelectedItem;
+                recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
+                recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
+                recipe.Categorie = (Category)cbCategories.SelectedItem;
+                AddIngredient addIngredient = new AddIngredient(recipe);
+                this.Close();
+                addIngredient.ShowDialog();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }       
         }
     }
 }

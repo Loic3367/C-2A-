@@ -16,6 +16,9 @@
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="175"/>
                 <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="25"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -24,7 +27,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -52,15 +55,12 @@
             </ComboBox>
             <Label Grid.Column="3" Grid.Row="3" Content="Coût" Margin="5"/>
             <ComboBox Grid.Column="4" Grid.Row="3" Margin="5" x:Name="cbCout"/>
-            <Button Grid.Column="4" Grid.Row="4" Margin="5" Content="Ajouter Ingrédient" Click="ButtonAddIngredient_Click"/>
-            <Label Grid.Column="1" Grid.Row="6" Margin="5" Content="Commentaires :" />
-            <Label Grid.Column="1" Grid.Row="5" Margin="5" Content="Catégorie :" />
-            <ComboBox Grid.Column="2" Grid.Row="5" Margin="5" x:Name="cbCategories"/>
-            <TextBox Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="5" x:Name="Comments"/>
-            <Label Grid.Column="1" Grid.Row="4" Content="Ingrédients" Margin="5"/>
-            <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="5" x:Name="cbIngredients"/>
-            <Label Grid.Column="3" Grid.Row="5" Content="Liste des étapes :" Margin="5"/>
-            <Button Grid.Column="2" Grid.Row="8" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder la recette" Click="ButtonAddRecipes_Click"/>
+            <Button Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Margin="5" Content="Ajouter Ingrédient" Click="ButtonAddIngredient_Click"/>
+            <Label Grid.Column="1" Grid.Row="5" Margin="5" Content="Commentaires :" />
+            <Label Grid.Column="1" Grid.Row="4" Margin="5" Content="Catégorie :" />
+            <ComboBox Grid.Column="2" Grid.Row="4" Margin="5" Grid.ColumnSpan="3"  x:Name="cbCategories"/>
+            <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="5" x:Name="Comments"/>
+                    
         </Grid>
     </Grid>
 </Window>

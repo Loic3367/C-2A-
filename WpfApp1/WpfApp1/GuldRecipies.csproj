@@ -75,8 +75,8 @@
     <Compile Include="Forms\AddSteps.xaml.cs">
       <DependentUpon>AddSteps.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddIngredient.xaml.cs">
-      <DependentUpon>AddIngredient.xaml</DependentUpon>
+    <Compile Include="Forms\AddListIngredient.xaml.cs">
+      <DependentUpon>AddListIngredient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddRecipes.xaml.cs">
       <DependentUpon>AddRecipes.xaml</DependentUpon>
@@ -89,9 +89,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
-    <Compile Include="UCTabIngredient.xaml.cs">
-      <DependentUpon>UCTabIngredient.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\UCIngredients.xaml.cs">
       <DependentUpon>UCIngredients.xaml</DependentUpon>
     </Compile>
@@ -101,9 +98,6 @@
     <Compile Include="UserControl\UCTabRecette.xaml.cs">
       <DependentUpon>UCTabRecette.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UCSteps.xaml.cs">
-      <DependentUpon>UCSteps.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\UCTasks.xaml.cs">
       <DependentUpon>UCTasks.xaml</DependentUpon>
     </Compile>
@@ -111,7 +105,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Forms\AddIngredient.xaml">
+    <Page Include="Forms\AddListIngredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,10 +133,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UCTabIngredient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControl\UCIngredients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,10 +142,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\UCTabRecette.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\UCSteps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

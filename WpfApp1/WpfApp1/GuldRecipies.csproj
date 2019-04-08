@@ -72,6 +72,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Class\Profil.cs" />
+    <Compile Include="Forms\AddIngredients.xaml.cs">
+      <DependentUpon>AddIngredients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddSteps.xaml.cs">
       <DependentUpon>AddSteps.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
+    <Compile Include="UCSteps.xaml.cs">
+      <DependentUpon>UCSteps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UCIngredients.xaml.cs">
       <DependentUpon>UCIngredients.xaml</DependentUpon>
     </Compile>
@@ -98,9 +104,10 @@
     <Compile Include="UserControl\UCTabRecette.xaml.cs">
       <DependentUpon>UCTabRecette.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UCTasks.xaml.cs">
-      <DependentUpon>UCTasks.xaml</DependentUpon>
-    </Compile>
+    <Page Include="Forms\AddIngredients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\AddSteps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +140,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCSteps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\UCIngredients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,10 +153,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\UCTabRecette.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\UCTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

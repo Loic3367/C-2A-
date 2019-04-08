@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Logique d'interaction pour UCTasks.xaml
+    /// Logique d'interaction pour UCSteps.xaml
     /// </summary>
-    public partial class UCTasks : UserControl
-    { 
-        public UCTasks()
+    public partial class UCSteps : UserControl
+    {
+        public UCSteps()
         {
             InitializeComponent();
         }

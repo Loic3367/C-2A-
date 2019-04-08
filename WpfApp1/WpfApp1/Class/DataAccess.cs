@@ -14,9 +14,9 @@ namespace WpfApp1
 {
     public class DataAccess
     {
-        public static void SelectInBDD()
-        {
-            List<String> ImportedFiles = new List<string>();
+        public static List<Ingredient> SelectAllIngredients()
+        {          
+            List<Ingredient> ImportedIngredients = new List<Ingredient>();
             using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
             {            
                 conn.Open();
@@ -25,10 +25,19 @@ namespace WpfApp1
                 {
                     SQLiteDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
+                    {
+                        Ingredient ingre = new Ingredient(); 
+                        ingre.Id = (long)rdr["Id"];
+                        ingre.Name = (string)rdr["Nom"];
+                        //ingre.MeasureUnit = (MeasureIngredient)(int)rdr["UniteMesure"];//Droite to Gauche (Int --> MeasureIngredient)
+                        DateTime testtt = Function.SQLTimetoDateTime((long)rdr["DatePeremption"]);
+                        //ingre.ExpirationDate = (System.DateTime)rdr["DatePeremption"];
                         Console.WriteLine("Id :" + rdr["Id"]);
-                    
+                        ImportedIngredients.Add(ingre);
+                    }
                 }              
-            }     
+            }
+            return ImportedIngredients;
         }
 
         public static string InsertIngredient(Ingredient ingre)
@@ -43,10 +52,8 @@ namespace WpfApp1
                     command.Parameters.AddWithValue("@name", ingre.Name);
                     command.Parameters.AddWithValue("@peremptiondate", ingre.ExpirationDate);
                     command.Parameters.AddWithValue("@measureunit", ingre.MeasureUnit);
-
                     conn.Open();
                     int result = command.ExecuteNonQuery();
-
                     // Check Error
                     if (result < 0)
                         Console.WriteLine("Error inserting data into Database!");

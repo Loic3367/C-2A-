@@ -20,13 +20,6 @@ namespace WpfApp1
     public partial class AddIngredient : Window
     {
         Recipes rcp = new Recipes();
-    
-        public AddIngredient()
-        {
-            InitializeComponent();
-            UCIngredients uCIngredients = new UCIngredients();
-            
-        }
         public AddIngredient(Recipes recipe)
         {
             InitializeComponent();        
@@ -36,16 +29,18 @@ namespace WpfApp1
         }
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            //Add Ingredients
-            //Ingredients newIngredient = new Ingredients(NameIngredient.Text, ExpirationDate.DisplayDate, (MeasureIngredient)cbMeasure.SelectedIndex);
-            //DataAccess.InsertIngredient(newIngredient);
-            //this.Close();
+            string IngreName = cbSelIngre.Text;
+            List<string> testList = new List<string>();
+            foreach(UCIngredients item in pnl1.Children)
+            {
+                string test = item.cbIngreSel.SelectedItem.ToString();
+                testList.Add(test);
+            }
         }
 
         private void AddListIngre_Click(object sender, RoutedEventArgs e)
         {
-            UCIngredients uCIngredients = new UCIngredients();
-            
+            UCIngredients uCIngredients = new UCIngredients();         
             Size size = uCIngredients.RenderSize;
             pnl1.Children.Add(uCIngredients);
             pnl1.RenderSize = size;

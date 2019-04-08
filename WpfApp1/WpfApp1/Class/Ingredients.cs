@@ -40,7 +40,7 @@ namespace WpfApp1
     public class Ingredient
     {
         [Column(Name = "Id", IsPrimaryKey = true, DbType = "BIGINT", IsDbGenerated = true, CanBeNull = false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
         [Column(Name = "Nom", DbType = "Text", CanBeNull = false)]
         public String Name { get; set; }
         [Column(Name = "DatePeremption", DbType = "BIGINT", CanBeNull = false)]

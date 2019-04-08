@@ -14,8 +14,31 @@
             <TabItem Header="Recettes">
                 <local:UCTabRecette/>
             </TabItem>
-                     
-            <TabItem Header="Ingrédients" />
+
+            <TabItem Header="Ingrédients">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="175"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="175"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="1" Grid.Row="0" Content="Ajouter un ingrédient :"/>
+                    <Button Grid.Column="2" Grid.Row="0" x:Name="btnAddIngre" Click="AddIngre_click"/>
+                    <ListView Grid.Column="1" Grid.Row="3">
+                        <ListViewItem Content="Salut" />
+                    </ListView>
+                </Grid>
+            </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

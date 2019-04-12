@@ -5,28 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="AddIngredients" Height="120" Width="750">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="25"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+        Title="AddIngredients" SizeToContent="WidthAndHeight" Padding="5">
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="25"/>
+        <ColumnDefinition Width="175"/>
+        <ColumnDefinition Width="150"/>
+        <ColumnDefinition Width="175"/>
+        <ColumnDefinition Width="150"/>
+        <ColumnDefinition Width="25"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="5" />
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="1" Content="Nom de l'ingrédient :" Padding="5"/>
-        <TextBox Grid.Row="0" Grid.Column="2" x:Name="tbNameIngre" Padding="5"/>
-        <Label Grid.Row="0" Grid.Column="3" Content="Unité de mesure" Padding="5"/>
-        <ComboBox Grid.Row="0" Grid.Column="4" x:Name="cbIngreUnite" Padding="5"/>
-        <Label Grid.Row="1" Grid.Column="1" Content="Date de péremption :" Padding="5"/>
-        <DatePicker Grid.Row="1" Grid.Column="2" x:Name="dpDatePerem" Padding="5"/>
-        <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Content="Sauvegarder Ingrédient" Click="AddIngredient_Click" Padding="5"/>
-        
-    </Grid>
+    <Label Grid.Row="0" Grid.Column="1" Content="Nom de l'ingrédient :" Padding="5"/>
+    <TextBox Grid.Row="0" Grid.Column="2" x:Name="tbNameIngre" Padding="5"/>
+    <Label Grid.Row="0" Grid.Column="3" Content="Unité de mesure" Padding="5"/>
+    <ComboBox Grid.Row="0" Grid.Column="4" x:Name="cbIngreUnite" Padding="5"/>
+    <Label Grid.Row="1" Grid.Column="1" Content="Date de péremption :" Padding="5"/>
+    <DatePicker Grid.Row="1" Grid.Column="2" x:Name="dpDatePerem" Padding="5"/>
+    <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Content="Sauvegarder Ingrédient" Click="AddIngredient_Click" Padding="5"/>
+    
+
+</Grid>
 </Window>
+

@@ -20,30 +20,45 @@ namespace WpfApp1
     public partial class AddIngredient : Window
     {
         Recipes rcp = new Recipes();
+        List<Ingredient> LI = new List<Ingredient>();
+        List<Ingredient> IngreList { get; set; }
+      
         public AddIngredient(Recipes recipe)
         {
             InitializeComponent();        
             rcp = recipe;
-          
-           // UCIngredients uCIngredients = new UCIngredients(rcp);
+            IngreList = DataAccess.SelectAllIngredients();
+            cbSelIngre.ItemsSource = DataAccess.SelectAllIngredients();
+           
         }
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            string IngreName = cbSelIngre.Text;
-            List<string> testList = new List<string>();
+            Ingredient ingr = new Ingredient();
+            ingr = IngreList.Find(x => x.ToString() == cbSelIngre.Text);
+            ingr.Quantite = Int32.Parse(tbQuantite.Text);
+            LI.Add(ingr);
+            
             foreach(UCIngredients item in pnl1.Children)
             {
-                string test = item.cbIngreSel.SelectedItem.ToString();
-                testList.Add(test);
+                Ingredient ingre = new Ingredient();
+                ingre = IngreList.Find(x => x.ToString() == item.cbIngreSel.SelectedItem.ToString());               
+                ingre.Quantite = Int32.Parse(item.tbQuantite.Text);
+                LI.Add(ingre);
             }
+            rcp.ListIngredients = LI;
+            AddSteps stepsForm = new AddSteps(rcp);
+            this.Close();
+            stepsForm.Show();
         }
 
         private void AddListIngre_Click(object sender, RoutedEventArgs e)
         {
             UCIngredients uCIngredients = new UCIngredients();         
             Size size = uCIngredients.RenderSize;
+            ScrollViewer scroll = new ScrollViewer();
             pnl1.Children.Add(uCIngredients);
             pnl1.RenderSize = size;
+            scroll.Content = pnl1;
         }
     }
 }

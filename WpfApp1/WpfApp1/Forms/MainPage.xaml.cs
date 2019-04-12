@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WpfApp1
 {
@@ -7,20 +10,20 @@ namespace WpfApp1
     /// </summary>
     public partial class MainPage : Window
     {
+        private ObservableCollection<Ingredient> listIngre;
         public MainPage()
         {
             InitializeComponent();
             //LoginWindow myLogWindow = new LoginWindow();
-            //myLogWindow.Show();          
-            Function.DateTimeToSQLTime(new System.DateTime(2019, 01, 28,00,00,00, System.DateTimeKind.Local));
-            //DataAccess.SelectInBDD();
-            AddSteps addSteps = new AddSteps();
-            addSteps.Show();
+            //myLogWindow.Show();                    
+            DataAccess.SelectAllIngredients();
+            listIngre = new ObservableCollection<Ingredient>(DataAccess.SelectAllIngredients());
+            lvMainIngre.ItemsSource = listIngre;
         }
 
         private void AddIngre_click(object sender, RoutedEventArgs e)
         {
-            AddIngredients addIngredient = new AddIngredients();
+            AddIngredients addIngredient = new AddIngredients(listIngre);
             addIngredient.Show();
         }
     }

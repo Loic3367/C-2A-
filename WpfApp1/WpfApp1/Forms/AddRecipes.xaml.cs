@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace WpfApp1
 {
@@ -45,6 +46,7 @@ namespace WpfApp1
             return ret;
         }
         #endregion
+        
         public AddRecipes()
         {
 
@@ -58,8 +60,10 @@ namespace WpfApp1
         {
             Recipes recipe = new Recipes();
             try
-            {
+            {      
+                recipe.Nom = RecipeName.Text;
                 recipe.CookTime = Int32.Parse(CookTime.Text);
+                recipe.PrepTime = Int32.Parse(PrepTime.Text);
                 recipe.Cost = (Cost)cbCout.SelectedItem;
                 recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
                 recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);

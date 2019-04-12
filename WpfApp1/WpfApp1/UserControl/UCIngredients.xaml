@@ -5,21 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="800">
+             Width="Auto" Height="Auto">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="175"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Content="Sélectionner un ingrédient :" Padding="5"/>
-        <ComboBox Grid.Column="3" Grid.Row="0" x:Name="cbIngreSel"/>
+        <Label Grid.Column="1" Grid.Row="0" Content="Sélectionner un ingrédient :"/>
+        <ComboBox Grid.Column="2" Grid.Row="0" x:Name="cbIngreSel"/>
+        <Label Grid.Column="3" Grid.Row="0" Content="et la quantité :"/>
+        <TextBox Grid.Column="4" Grid.Row="0" x:Name="tbQuantite" />
     </Grid>
    
 </UserControl>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace WpfApp1
 {
@@ -21,11 +22,13 @@ namespace WpfApp1
             InitializeComponent();
             cbIngreUnite.ItemsSource = GetMeasure();
         }
-
+        public AddIngredients(ObservableCollection<Ingredient> lI)
+        {
+            InitializeComponent();
+        }
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            DateTime dtt = (System.DateTime)dpDatePerem.SelectedDate;     
-            DateTime dt = new DateTime(dtt.Year, dtt.Month, dtt.Day, 00, 00, 00, DateTimeKind.Local);
+            string dt = dpDatePerem.SelectedDate.ToString();
             Ingredient newIngredient = new Ingredient(tbNameIngre.Text, dt, (MeasureIngredient)cbIngreUnite.SelectedIndex);
             DataAccess.InsertIngredient(newIngredient);
             this.Close();

@@ -9,29 +9,29 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="25" />
-                <RowDefinition Height="25" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="25" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Label Grid.Column="1" Grid.Row="0" Content="Ajouter une recette :"/>
-            <Button Grid.Column="2" Grid.Row="0" Content="Push me" Click="Button_Click" ></Button>
-            <DataGrid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="4"  Loaded="DataGrid_Loaded">
+            <Button Grid.Column="2" Grid.Row="0" Click="Button_Click" Height="30" Width="30">
+                <Image Source="/Images/add-icon.png"></Image>
+            </Button>
 
-            </DataGrid>
+            <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+                <ListView.View>
+                    <GridView x:Name="grdNames">
+                        <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Nom}"/>
+                        <GridViewColumn Header="Address"  DisplayMemberBinding="{Binding Difficulty}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </Grid>
 </UserControl>

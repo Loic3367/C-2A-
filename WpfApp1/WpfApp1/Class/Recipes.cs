@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq.Mapping;
-
+using System.ComponentModel;
 
 namespace WpfApp1
 {
     public enum Difficultee { Très_facile, Facile, Moyen, Difficile, Très_difficile }
     public enum Cout {Bon_Marché, Coût_Moyen, Chère }
-    public enum Categorie { Italien,Français,Américain,Asiatique, Méditeranéen }//Epicé Vegan Végétarien
+    public enum Categorie { [Description("Italien")]Italien,Français,Américain,Asiatique, Méditeranéen }//Epicé Vegan Végétarien
     //Structures pour gérer les strings des enums
     #region
     public struct Cost
@@ -88,18 +88,19 @@ namespace WpfApp1
      public class Recipes
     {
         [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string Nom { get; set; }
         public List<Ingredient> ListIngredients { get; set; }
         public List<Steps> ListSteps { get; set; }
         public Difficulty Difficulty { get; set; }
-        public int PrepTime { get; set; } 
-        public int CookTime { get; set; }
-        public int NbrPeople { get; set; }  
+        public long PrepTime { get; set; } 
+        public long CookTime { get; set; }
+        public long NbrPeople { get; set; }  
+        public string DateCreation { get; set; }
         public Cost Cost { get; set; }     
         public Category Categorie { get; set; }
         public Recipes() { }
-        public Recipes(string name,List<Ingredient> myIngredients, List<Steps> mySteps, Difficulty myDiff, int myTimePrep, int myTimeCook, int myPeopleNbr, Cost myCosts,Category myCategories)
+        public Recipes(string name,List<Ingredient> myIngredients, List<Steps> mySteps, Difficulty myDiff, long myTimePrep, long myTimeCook, long myPeopleNbr, Cost myCosts,Category myCategories)
         {
             this.Nom = name;
             this.ListIngredients = myIngredients;

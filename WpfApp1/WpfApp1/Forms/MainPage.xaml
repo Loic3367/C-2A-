@@ -5,46 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="660" Width="1200">
+        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="360" Width="700">
     <Grid>
         <TabControl>
             <TabItem Header="Accueil">
                 <local:UCTabAccueil></local:UCTabAccueil>
             </TabItem>
             <TabItem Header="Recettes">
-                <local:UCTabRecette/>
+                <local:UCTabRecette></local:UCTabRecette>
+
             </TabItem>
 
             <TabItem Header="Ingrédients">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="175"/>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="175"/>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="18"/>
+                        <ColumnDefinition Width="79"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="97"/>
+                        <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="1" Grid.Row="0" Content="Ajouter un ingrédient :"/>
-                    <Button Grid.Column="2" Grid.Row="0" x:Name="btnAddIngre" Click="AddIngre_click"/>
+                    <Label Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Content="Ajouter un ingrédient :"/>
                     
-                    <ListView x:Name="lvMainIngre" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+                    <Button Grid.Column="8" Grid.Row="3" Click="AddIngre_click" Height="30" Width="30" Margin="33,6,34,6">
+                        <Image Source="/Images/add-icon.png"></Image>
+                    </Button>
+                    <ListView x:Name="lvMainIngre" Margin="5,5,5,0" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" ScrollViewer.CanContentScroll="True">
                         <ListView.View>
                             <GridView x:Name="grdNames">
-                                <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Nom}"/>
-                                <GridViewColumn Header="Address"  DisplayMemberBinding="{Binding MeasureUnit}"/>
+                                <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Unité de mesure"  DisplayMemberBinding="{Binding MeasureUnit}"/>
+                                <GridViewColumn Header="Date de péremption" DisplayMemberBinding="{Binding ExpirationDate}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
                 </Grid>
             </TabItem>
-            
+
+            <TabItem Header="Profil">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Afficher Liste des recettes de l'utilisateur"/>
+                    <Label Content="Gérer mot de Passe ? " Grid.Row="0" Grid.Column="1"/>
+                    <Label Content="Afficher un UserControl pour gérer toutes les recettes" Grid.Row="0" Grid.Column="2"/>
+
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,11 +13,12 @@ namespace WpfApp1
         List<Steps> listSteps = new List<Steps>();
         Recipes rcp = new Recipes();
         int numStep = 2;
-  
-        public AddSteps(Recipes recipe)
+        private ObservableCollection<Recipes> listRecipes;
+        public AddSteps(Recipes recipe,ObservableCollection<Recipes> r)
         {
             InitializeComponent();
             rcp = recipe;
+            listRecipes = r;
         }
         private void AddListSteps_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +44,7 @@ namespace WpfApp1
                 listSteps.Add(steps);
             }
             rcp.ListSteps = listSteps;
+            listRecipes.Add(rcp);
             long numRcp = DataAccess.InsertRecipe(rcp);
             foreach(Ingredient i in rcp.ListIngredients)
             {

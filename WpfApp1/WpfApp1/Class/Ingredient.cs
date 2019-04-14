@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
-
+using System.ComponentModel;
 
 namespace WpfApp1
 {
@@ -36,19 +36,98 @@ namespace WpfApp1
         }
     }
     #endregion
-    [Table(Name = "Ingredients")]
-    public class Ingredient
+    
+    public class Ingredient : INotifyPropertyChanged
     {
-        [Column(Name = "Id", IsPrimaryKey = true, DbType = "BIGINT", IsDbGenerated = true, CanBeNull = false)]
-        public long Id { get; set; }
-        [Column(Name = "Nom", DbType = "Text", CanBeNull = false)]
-        public String Name { get; set; }
-      
-        
-        public string ExpirationDate { get; set; }
-        public int Quantite { get; set; }
-        [Column(Name = "UniteMesure", DbType = "BIGINT", CanBeNull = false)]
-        public MeasureIngredient MeasureUnit { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public long Id { get; set; }     
+        private string name { get; set; }     
+        private string expirationDate { get; set; }
+        private int quantite { get; set; }     
+        public MeasureIngredient measureUnit { get; set; }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Nom"));
+                    }
+                }
+            }
+        }
+
+        public string ExpirationDate
+        {
+            get
+            {
+                return expirationDate;
+            }
+
+            set
+            {
+                if (value != expirationDate)
+                {
+                    expirationDate = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Date d'expiration"));
+                    }
+                }
+            }
+        }
+
+        public int Quantite
+        {
+            get
+            {
+                return quantite;
+            }
+
+            set
+            {
+                if (value != quantite)
+                {
+                    quantite = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Quantité"));
+                    }
+                }
+            }
+        }
+
+        public MeasureIngredient MeasureUnit
+        {
+            get
+            {
+                return measureUnit;
+            }
+
+            set
+            {
+                if (value != measureUnit)
+                {
+                    measureUnit = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Indice de mesure"));
+                    }
+                }
+            }
+        }
+
+
+
         public Ingredient()
         {
 
@@ -59,6 +138,8 @@ namespace WpfApp1
             this.ExpirationDate = myExpiraDate;
             this.MeasureUnit = myUnit;
         }
+
+        
 
         public override string ToString()
         {

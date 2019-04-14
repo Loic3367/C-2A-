@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,16 +18,18 @@ namespace WpfApp1
     /// <summary>
     /// Logique d'interaction pour AddIngredient.xaml
     /// </summary>
-    public partial class AddIngredient : Window
+    public partial class AddListIngredient : Window
     {
         Recipes rcp = new Recipes();
         List<Ingredient> LI = new List<Ingredient>();
         List<Ingredient> IngreList { get; set; }
-      
-        public AddIngredient(Recipes recipe)
+        private ObservableCollection<Recipes> listRecipes;
+
+        public AddListIngredient(Recipes recipe, ObservableCollection<Recipes> r)
         {
             InitializeComponent();        
             rcp = recipe;
+            listRecipes = r;
             IngreList = DataAccess.SelectAllIngredients();
             cbSelIngre.ItemsSource = DataAccess.SelectAllIngredients();
            
@@ -46,7 +49,7 @@ namespace WpfApp1
                 LI.Add(ingre);
             }
             rcp.ListIngredients = LI;
-            AddSteps stepsForm = new AddSteps(rcp);
+            AddSteps stepsForm = new AddSteps(rcp,listRecipes);
             this.Close();
             stepsForm.Show();
         }

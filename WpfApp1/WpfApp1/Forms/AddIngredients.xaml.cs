@@ -10,6 +10,7 @@ namespace WpfApp1
     /// </summary>
     public partial class AddIngredients : Window
     {
+        private ObservableCollection<Ingredient> listI;
         static IReadOnlyList<IngredientMeasure> GetMeasure()
         {
             List<IngredientMeasure> ret = new List<IngredientMeasure>();
@@ -21,14 +22,18 @@ namespace WpfApp1
         {
             InitializeComponent();
             cbIngreUnite.ItemsSource = GetMeasure();
+            
         }
         public AddIngredients(ObservableCollection<Ingredient> lI)
         {
             InitializeComponent();
+            cbIngreUnite.ItemsSource = GetMeasure();
+            listI = lI;
         }
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
             string dt = dpDatePerem.SelectedDate.ToString();
+            listI.Add(new Ingredient(tbNameIngre.Text, dt, (MeasureIngredient)cbIngreUnite.SelectedIndex));
             Ingredient newIngredient = new Ingredient(tbNameIngre.Text, dt, (MeasureIngredient)cbIngreUnite.SelectedIndex);
             DataAccess.InsertIngredient(newIngredient);
             this.Close();

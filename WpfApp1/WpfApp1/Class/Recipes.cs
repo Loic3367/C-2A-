@@ -87,7 +87,7 @@ namespace WpfApp1
     #endregion
      public class Recipes
     {
-        [Column(Name = "Id", IsPrimaryKey = true, DbType = "INT", IsDbGenerated = true, CanBeNull = false)]
+        
         public long ID { get; set; }
         public string Nom { get; set; }
         public List<Ingredient> ListIngredients { get; set; }

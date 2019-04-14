@@ -46,7 +46,7 @@ namespace WpfApp1
             return ret;
         }
         #endregion
-        
+        private ObservableCollection<Recipes> listRecipes;
         public AddRecipes()
         {
 
@@ -54,6 +54,16 @@ namespace WpfApp1
             cbDifficulte.ItemsSource = GetDifficulty();
             cbCout.ItemsSource = GetCosts();
             cbCategories.ItemsSource = getCategories();
+        }
+
+        public AddRecipes(ObservableCollection<Recipes> r)
+        {
+
+            InitializeComponent();
+            cbDifficulte.ItemsSource = GetDifficulty();
+            cbCout.ItemsSource = GetCosts();
+            cbCategories.ItemsSource = getCategories();
+            listRecipes = r;
         }
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
@@ -67,8 +77,8 @@ namespace WpfApp1
                 recipe.Cost = (Cost)cbCout.SelectedItem;
                 recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
                 recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
-                recipe.Categorie = (Category)cbCategories.SelectedItem;
-                AddIngredient addIngredient = new AddIngredient(recipe);
+                recipe.Categorie = (Category)cbCategories.SelectedItem; 
+                AddListIngredient addIngredient = new AddListIngredient(recipe,listRecipes);
                 this.Close();
                 addIngredient.ShowDialog();
 

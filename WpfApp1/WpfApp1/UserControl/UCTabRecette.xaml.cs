@@ -9,16 +9,17 @@ namespace WpfApp1
     /// </summary>
     public partial class UCTabRecette : System.Windows.Controls.UserControl
     {
+        private ObservableCollection<Recipes> listRecipes;
         public UCTabRecette()
         {
             InitializeComponent();
-            ObservableCollection<Recipes> colRecipes = new ObservableCollection<Recipes>(DataAccess.getAllRecipes());
-            lvMain.ItemsSource = colRecipes;
+            listRecipes = new ObservableCollection<Recipes>(DataAccess.getAllRecipes());
+            lvMain.ItemsSource = listRecipes;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddRecipes newRecipes = new AddRecipes();
+            AddRecipes newRecipes = new AddRecipes(listRecipes);
             newRecipes.Show();
         }
 

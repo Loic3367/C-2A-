@@ -92,6 +92,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
+    <Compile Include="IngredientViewModel.cs" />
     <Compile Include="UCSteps.xaml.cs">
       <DependentUpon>UCSteps.xaml</DependentUpon>
     </Compile>

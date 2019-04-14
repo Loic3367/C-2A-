@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\adai103\Documents\2eme_année\Projet_DotNet-master\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\adai103\Documents\2eme_année\Projet_DotNet-master\WpfApp1\WpfApp1\App.xaml
+C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
 11-542543070
 
-24-1122725048
-181274333458
+25236972867
+181826302500
 Forms\AddIngredients.xaml;Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UCSteps.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabRecette.xaml;
 
 True

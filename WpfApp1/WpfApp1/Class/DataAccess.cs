@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 
 namespace WpfApp1
 {
@@ -146,5 +147,42 @@ namespace WpfApp1
             
         }
 
+        public static Profil GetProfil(Profil p)
+        {
+            Profil pflDB = new Profil();
+            using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
+            {
+                conn.Open();
+                string stm = "SELECT Identifiant, Motdepasse, Sel FROM Profils WHERE Identifiant = '" + p.Nom+"'";
+                using (SQLiteCommand cmd = new SQLiteCommand(stm, conn))
+                {
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        pflDB.Nom = (string)rdr["Identifiant"];
+                        pflDB.HashPassword = (byte[])rdr["MotdePasse"];
+                        pflDB.Salt = (byte[])rdr["Sel"];
+                    }
+                }
+            }
+            return pflDB;
+        }
+
+        public static void InsertProfil(Profil p)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=DataBase.db"))
+            {
+                string query = "INSERT INTO Profils (Identifiant,Motdepasse,Sel) VALUES (@identifiant, @motdepasse,@sel)";
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    
+                    command.Parameters.AddWithValue("@identifiant", p.Nom);
+                    command.Parameters.AddWithValue("@motdepasse", p.HashPassword);
+                    command.Parameters.AddWithValue("@sel", p.Salt);
+                    conn.Open();
+                    int result = command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

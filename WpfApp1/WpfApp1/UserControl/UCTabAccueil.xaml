@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="700">
+             d:DesignHeight="360" d:DesignWidth="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
@@ -33,7 +33,7 @@
 
         <Label Grid.Column="2" Grid.ColumnSpan="4" Content="Bienvenue sur le livre de recettes de Guld !" HorizontalAlignment="Center"/>
         <Label Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="3" HorizontalAlignment="Center"  Content="Recette du jour :" />
-        <Label Grid.Column="4" Grid.Row="3"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette utilisé" />
+        <Label Grid.Column="1" Grid.Row="5"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette utilisé" />
         <Label Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Recette mieux notée/Dernière recette ajoutée" />
     </Grid>
 </UserControl>

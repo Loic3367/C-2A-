@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\MeasureUnitConverter.cs" />
     <Compile Include="Class\Profil.cs" />
     <Compile Include="Forms\AddIngredients.xaml.cs">
       <DependentUpon>AddIngredients.xaml</DependentUpon>
@@ -86,7 +87,7 @@
     </Compile>
     <Compile Include="Class\DataAccess.cs" />
     <Compile Include="Class\Steps.cs" />
-    <Compile Include="Class\Function.cs" />
+    <Compile Include="Class\HandlePassword.cs" />
     <Compile Include="Class\Ingredient.cs" />
     <Compile Include="Forms\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

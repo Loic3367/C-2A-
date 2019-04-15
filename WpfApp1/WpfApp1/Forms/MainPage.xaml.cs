@@ -14,8 +14,8 @@ namespace WpfApp1
         public MainPage()
         {
             InitializeComponent();
-            //LoginWindow myLogWindow = new LoginWindow();
-            //myLogWindow.Show();                    
+            LoginWindow myLogWindow = new LoginWindow();
+            myLogWindow.Show();                    
             DataAccess.SelectAllIngredients();
             listIngre = new ObservableCollection<Ingredient>(DataAccess.SelectAllIngredients());
             lvMainIngre.ItemsSource = listIngre;
@@ -26,5 +26,7 @@ namespace WpfApp1
             AddIngredients addIngredient = new AddIngredients(listIngre);
             addIngredient.Show();
         }
+
+        
     }
 }

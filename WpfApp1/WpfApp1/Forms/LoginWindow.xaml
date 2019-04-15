@@ -25,7 +25,11 @@
         <Label Grid.Column="0" Content="Identifiant"/>
         <TextBox Grid.Column="2" x:Name="Identifiant" Grid.ColumnSpan="3"/>
         <Label Grid.Column="0" Content="Mot de passe" Grid.Row="1"/>
-        <TextBox Grid.Column="2" x:Name="inputPwd" Grid.Row="1" Grid.ColumnSpan="3" />
-        <Button Grid.Row="3" Grid.ColumnSpan="3" Content="I'm a button ! Please Press me !" Click="Button_Click" Grid.Column="1" />
+        <PasswordBox Grid.Column="2" x:Name="inputPwd" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="3" Content="I'm a button ! Please Press me !" Click="Button_Click" Grid.Column="1" />
+        <TextBlock Margin="10" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" >
+			<Hyperlink  Click="openFormCreateLogin" >Pas de compte ? Veuillez cliquer ici pour en créer un</Hyperlink> 
+        </TextBlock>
+        
     </Grid>
 </Window>

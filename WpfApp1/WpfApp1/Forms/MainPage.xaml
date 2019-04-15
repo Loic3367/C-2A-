@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="360" Width="700">
+        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="360" Width="700"
+        >
+    <Window.Resources>
+        <local:MeasureUnitConverter x:Key="MUconv" />
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem Header="Accueil">
@@ -50,7 +54,7 @@
                         <ListView.View>
                             <GridView x:Name="grdNames">
                                 <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
-                                <GridViewColumn Header="Unité de mesure"  DisplayMemberBinding="{Binding MeasureUnit}"/>
+                                <GridViewColumn Header="Unité de mesure"  DisplayMemberBinding="{Binding MeasureUnit,Converter={StaticResource MUconv}}"/>
                                 <GridViewColumn Header="Date de péremption" DisplayMemberBinding="{Binding ExpirationDate}"/>
                             </GridView>
                         </ListView.View>

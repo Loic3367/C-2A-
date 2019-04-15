@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1.Class
+namespace WpfApp1
 {
-    class Profil
+    public class Profil
     {
         public string Nom { get; set; }
-        public string Password { get; set; }
+        public byte[] HashPassword { get; set; }
+        public byte[] Salt { get; set; }
     }
 }

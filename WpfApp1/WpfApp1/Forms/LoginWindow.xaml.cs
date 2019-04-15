@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Windows;
 using System.Security.Cryptography;
-using System.Text;
-using System.Linq;
-using System.Windows.Documents;
+using System.Windows;
 namespace WpfApp1
 {
     /// <summary>
@@ -23,7 +20,7 @@ namespace WpfApp1
         {
             Profil pfl = new Profil();
             Profil pflDB = new Profil();
-            pfl.Salt = new byte[6];
+            
             if (String.IsNullOrWhiteSpace(Identifiant.Text) == true)
             {
                 MessageBox.Show("Veuillez entrer un identifiant");
@@ -39,11 +36,7 @@ namespace WpfApp1
                 MessageBox.Show("Veuillez entrer un mot de passe");
                 return;
             }
-
-            byte[] salt = new byte[25000];
-            rngCsp.GetBytes(salt);
-            pfl.Salt = salt;
-            HandlePassword.HashProfil(this.inputPwd.Password, pfl);
+            //HandlePassword.HashProfil(this.inputPwd.Password, pfl);
             HandlePassword.GetProfilHash(this.inputPwd.Password, pfl);
             /*
             https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider?redirectedfrom=MSDN&view=netframework-4.7.2
@@ -76,7 +69,8 @@ namespace WpfApp1
 
         private void openFormCreateLogin(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello !");
+            CreateUserForm newUser = new CreateUserForm();
+            newUser.Show();
         }
 
         

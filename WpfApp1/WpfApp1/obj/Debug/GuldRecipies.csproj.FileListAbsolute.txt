@@ -234,3 +234,5 @@ C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\GuldRecipies.csproj.CopyComplete
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.g.cs
+C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.baml

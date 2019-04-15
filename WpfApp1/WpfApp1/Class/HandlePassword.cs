@@ -7,10 +7,12 @@ namespace WpfApp1
 {
     public class HandlePassword
     {
-
+        private static RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
         public static void HashProfil(string input,Profil pfl)
         {
-
+            byte[] salt = new byte[25000];
+            rngCsp.GetBytes(salt);
+            pfl.Salt = salt;
             byte[] passwordBytes = Encoding.UTF8.GetBytes(input);
             byte[] hash;
             using (SHA256 mySHA256 = SHA256.Create())
@@ -25,6 +27,9 @@ namespace WpfApp1
 
         public static void GetProfilHash(string input,Profil pfl)
         {
+            byte[] salt = new byte[25000];
+            rngCsp.GetBytes(salt);
+            pfl.Salt = salt;
             Profil pflDB = DataAccess.GetProfil(pfl);
             var pwdInput = input;
             byte[] passwordBytes = Encoding.UTF8.GetBytes(pwdInput);

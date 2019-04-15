@@ -89,6 +89,9 @@
     <Compile Include="Class\Steps.cs" />
     <Compile Include="Class\HandlePassword.cs" />
     <Compile Include="Class\Ingredient.cs" />
+    <Compile Include="Forms\CreateUserForm.xaml.cs">
+      <DependentUpon>CreateUserForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\AddRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CreateUserForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

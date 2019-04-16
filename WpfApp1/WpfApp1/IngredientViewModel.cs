@@ -53,7 +53,7 @@ namespace WpfApp1
 
         public IngredientViewModel()
         {
-            Ingre = new ObservableCollection<Ingredient>(DataAccess.SelectAllIngredients());
+            Ingre = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
         }
     }
 }

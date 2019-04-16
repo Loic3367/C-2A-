@@ -77,7 +77,8 @@ namespace WpfApp1
                 recipe.Cost = (Cost)cbCout.SelectedItem;
                 recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
                 recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
-                recipe.Categorie = (Category)cbCategories.SelectedItem; 
+                recipe.Categorie = (Category)cbCategories.SelectedItem;
+                recipe.CreateurId = Profil.CurrentProfil.ID;
                 AddListIngredient addIngredient = new AddListIngredient(recipe,listRecipes);
                 this.Close();
                 addIngredient.ShowDialog();

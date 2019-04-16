@@ -35,7 +35,7 @@ namespace WpfApp1
             string dt = dpDatePerem.SelectedDate.ToString();
             listI.Add(new Ingredient(tbNameIngre.Text, dt, (MeasureIngredient)cbIngreUnite.SelectedIndex));
             Ingredient newIngredient = new Ingredient(tbNameIngre.Text, dt, (MeasureIngredient)cbIngreUnite.SelectedIndex);
-            DataAccess.InsertIngredient(newIngredient);
+            DataAccess.Dal.InsertIngredient(newIngredient);
             this.Close();
         }
     }

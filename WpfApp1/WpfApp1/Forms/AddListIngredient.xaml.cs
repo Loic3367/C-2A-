@@ -30,8 +30,9 @@ namespace WpfApp1
             InitializeComponent();        
             rcp = recipe;
             listRecipes = r;
-            IngreList = DataAccess.SelectAllIngredients();
-            cbSelIngre.ItemsSource = DataAccess.SelectAllIngredients();
+            
+            IngreList = DataAccess.Dal.SelectAllIngredients();
+            cbSelIngre.ItemsSource = DataAccess.Dal.SelectAllIngredients();
            
         }
         private void AddIngredient_Click(object sender, RoutedEventArgs e)

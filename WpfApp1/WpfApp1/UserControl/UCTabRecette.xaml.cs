@@ -1,6 +1,5 @@
-﻿using System.Windows;
-using System.Data;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace WpfApp1
 {
@@ -13,7 +12,7 @@ namespace WpfApp1
         public UCTabRecette()
         {
             InitializeComponent();
-            listRecipes = new ObservableCollection<Recipes>(DataAccess.getAllRecipes());
+            listRecipes = new ObservableCollection<Recipes>(DataAccess.Dal.getAllRecipes());
             lvMain.ItemsSource = listRecipes;
         }
 

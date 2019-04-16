@@ -63,24 +63,7 @@
             </TabItem>
 
             <TabItem Header="Profil">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Label Content="Afficher Liste des recettes de l'utilisateur"/>
-                    <Label Content="Gérer mot de Passe ? " Grid.Row="0" Grid.Column="1"/>
-                    <Label Content="Afficher un UserControl pour gérer toutes les recettes" Grid.Row="0" Grid.Column="2"/>
-
-                </Grid>
+                <local:UCTabProfil/>
             </TabItem>
 
         </TabControl>

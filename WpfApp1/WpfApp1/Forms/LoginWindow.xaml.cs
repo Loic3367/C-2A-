@@ -19,7 +19,7 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Profil pfl = new Profil();
-            Profil pflDB = new Profil();
+            
             
             if (String.IsNullOrWhiteSpace(Identifiant.Text) == true)
             {
@@ -36,34 +36,15 @@ namespace WpfApp1
                 MessageBox.Show("Veuillez entrer un mot de passe");
                 return;
             }
-            //HandlePassword.HashProfil(this.inputPwd.Password, pfl);
-            HandlePassword.GetProfilHash(this.inputPwd.Password, pfl);
-            /*
-            https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider?redirectedfrom=MSDN&view=netframework-4.7.2
-            pflDB = DataAccess.GetProfil(pfl);
-            var pwdInput = this.inputPwd.Password;
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(pwdInput);
-            byte[] hash;
-            using (SHA256 mySHA256 = SHA256.Create())
+            try
             {
-                mySHA256.TransformBlock(passwordBytes, 0, passwordBytes.Length, null, 0);
-                mySHA256.TransformFinalBlock(salt, 0, salt.Length);
-                hash = mySHA256.Hash;
-            }
-
-            if (hash.SequenceEqual(pflDB.HashPassword))
-            {
-                MessageBox.Show("Password correspondent");
-            }
-            */
-            //DataAccess.GetProfil(pfl);
-
-            /* Méthode pour ouvrir une nouvelle page et la définir en tant que Main page, puis fermer l'autre
-            MainPage newWindow = new MainPage();
-            newWindow.Show();
-            Application.Current.MainWindow = newWindow;
-            this.Close();
-            */
+                Profil pflDB = HandlePassword.GetProfilHash(this.inputPwd.Password, pfl);
+                MainPage mainPage = new MainPage(pflDB);
+                mainPage.Show();
+                Application.Current.MainWindow = mainPage;
+            }  
+            catch(Exception err) { MessageBox.Show(err.Message); }
+                
             this.Close();
         }
 

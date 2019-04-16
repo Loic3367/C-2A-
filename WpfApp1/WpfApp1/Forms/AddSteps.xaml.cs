@@ -45,15 +45,15 @@ namespace WpfApp1
             }
             rcp.ListSteps = listSteps;
             listRecipes.Add(rcp);
-            long numRcp = DataAccess.InsertRecipe(rcp);
+            long numRcp = DataAccess.Dal.InsertRecipe(rcp);
             foreach(Ingredient i in rcp.ListIngredients)
             {
-                DataAccess.InsertListIngredients(numRcp, i);
+                DataAccess.Dal.InsertListIngredients(numRcp, i);
             }
            
             foreach(Steps s in rcp.ListSteps)
             {
-                DataAccess.InsertSteps(numRcp, s);
+                DataAccess.Dal.InsertSteps(numRcp, s);
             }
         }
     }

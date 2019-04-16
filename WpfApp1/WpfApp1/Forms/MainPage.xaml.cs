@@ -11,22 +11,28 @@ namespace WpfApp1
     public partial class MainPage : Window
     {
         private ObservableCollection<Ingredient> listIngre;
+        
         public MainPage()
         {
             InitializeComponent();
             LoginWindow myLogWindow = new LoginWindow();
             myLogWindow.Show();                    
-            DataAccess.SelectAllIngredients();
-            listIngre = new ObservableCollection<Ingredient>(DataAccess.SelectAllIngredients());
+            DataAccess.Dal.SelectAllIngredients();
+            listIngre = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
             lvMainIngre.ItemsSource = listIngre;
         }
-
+        public MainPage(Profil p)
+        {
+            Profil.CurrentProfil = p;
+            InitializeComponent();
+            DataAccess.Dal.SelectAllIngredients();
+            listIngre = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
+            lvMainIngre.ItemsSource = listIngre;
+        }
         private void AddIngre_click(object sender, RoutedEventArgs e)
         {
             AddIngredients addIngredient = new AddIngredients(listIngre);
             addIngredient.Show();
         }
-
-        
     }
 }

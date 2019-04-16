@@ -17,6 +17,7 @@
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -31,6 +32,9 @@
         <TextBox Grid.Column="4" Grid.Row="0" x:Name="tbQuantite"/>
         <Button Grid.Column="6" Grid.Row="0" Click="AddListIngre_Click" Height="30" Width="30">
             <Image Source="/Images/add-icon.png"></Image>
+        </Button>
+        <Button Grid.Column="7" Grid.Row="0" Click="AddListIngre_Click" Height="30" Width="30">
+            <Image Source="/Images/minus-icon.png"></Image>
         </Button>
         <Button Grid.Column="2" Grid.Row="2" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder les ingrédients" Click="AddIngredient_Click"/>
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" x:Name="pnl1" />

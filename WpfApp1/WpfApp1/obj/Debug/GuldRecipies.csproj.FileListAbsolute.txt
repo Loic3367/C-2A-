@@ -208,7 +208,6 @@ C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\AddRecipes.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\LoginWindow.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\MainPage.g.cs
-C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UCSteps.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCIngredients.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabAccueil.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabRecette.g.cs
@@ -223,7 +222,6 @@ C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\LoginWindow.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\MainPage.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Images.baml
-C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UCSteps.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCIngredients.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabAccueil.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabRecette.baml
@@ -236,3 +234,11 @@ C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.g.cs
 C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.baml
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\CreateUserForm.baml
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ChangePWDForm.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ChangePWDForm.baml
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabProfil.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCTabProfil.baml
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCSteps.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\UserControl\UCSteps.baml

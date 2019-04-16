@@ -26,14 +26,14 @@ namespace WpfApp1
         public UCIngredients()
         {
             InitializeComponent();
-            List<Ingredient> listIngre = DataAccess.SelectAllIngredients();
+            List<Ingredient> listIngre = DataAccess.Dal.SelectAllIngredients();
             cbIngreSel.ItemsSource = listIngre;
         }
 
         public UCIngredients(Recipes recipes)
         {
             InitializeComponent();
-            List<Ingredient> listIngre = DataAccess.SelectAllIngredients();
+            List<Ingredient> listIngre = DataAccess.Dal.SelectAllIngredients();
             cbIngreSel.ItemsSource = listIngre;
             rcp = recipes;
             

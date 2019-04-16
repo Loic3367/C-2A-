@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
-12-534574682
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
+14-1190022107
 
-23-34625248
-181826302500
-Forms\AddIngredients.xaml;Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\CreateUserForm.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UCSteps.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabRecette.xaml;
+251959118428
+18-1460142042
+Forms\AddIngredients.xaml;Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\ChangePWDForm.xaml;Forms\CreateUserForm.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Images.xaml;UserControl\UCSteps.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabProfil.xaml;UserControl\UCTabRecette.xaml;
 
 False
 

@@ -99,6 +99,7 @@ namespace WpfApp1
         public string DateCreation { get; set; }
         public Cost Cost { get; set; }     
         public Category Categorie { get; set; }
+        public long CreateurId { get; set; }
         public Recipes() { }
         public Recipes(string name,List<Ingredient> myIngredients, List<Steps> mySteps, Difficulty myDiff, long myTimePrep, long myTimeCook, long myPeopleNbr, Cost myCosts,Category myCategories)
         {

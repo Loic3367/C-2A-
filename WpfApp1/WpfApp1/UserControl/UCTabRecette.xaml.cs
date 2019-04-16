@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WpfApp1
 {
@@ -22,5 +23,12 @@ namespace WpfApp1
             newRecipes.Show();
         }
 
+        private void HandleDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //Recette sélectionnée sans la liste Ingredients liés et sans la liste d'étapes
+            Recipes selRecipe = (Recipes)((ListViewItem)sender).Content;
+
+            Recipes r = DataAccess.Dal.GetStepsAndIngredients(selRecipe);
+        }
     }
 }

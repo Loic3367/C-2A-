@@ -99,6 +99,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Recipes.cs" />
+    <Compile Include="Forms\ShowSelRecipe.xaml.cs">
+      <DependentUpon>ShowSelRecipe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IngredientViewModel.cs" />
     <Compile Include="UserControl\UCSteps.xaml.cs">
       <DependentUpon>UCSteps.xaml</DependentUpon>
@@ -152,6 +155,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ShowSelRecipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

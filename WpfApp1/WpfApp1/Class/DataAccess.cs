@@ -114,6 +114,7 @@ namespace WpfApp1
                 while (rdr.Read())
                 {
                     Recipes rec = new Recipes();
+                    rec.ID = (long)rdr["Id"];
                     rec.Nom = (string)rdr["Nom"];
                     rec.CookTime = (long)rdr["TempsCuisson"];
                     rec.PrepTime = (long)rdr["TempsPreparation"];
@@ -179,6 +180,30 @@ namespace WpfApp1
 
                 int result = cmd.ExecuteNonQuery();
             }
+        }
+
+        public Recipes GetStepsAndIngredients(Recipes r)
+        {
+            string query = "SELECT Etape.Idetape, Etape.Description, recette_ingredient.Idingredient, recette_ingredient.Quantite FROM Etape " +
+                "INNER JOIN recette_ingredient ON recette_ingredient.Id=@idrecette INNER JOIN Etape ON Etape.Id=@idrecette";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@idrecette", r.ID);
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                if(rdr.Read())
+                {
+                    Ingredient i = new Ingredient();
+                    i.Id = (long)rdr["Idingredient"];
+                    i.Quantite = (int)(long)rdr["Quantite"];//TO DO
+                    Steps s = new Steps();
+                    s.Number = (int)(long)rdr["Idetape"];// TO DO
+                    s.Description = (string)rdr["Description"];
+
+                    r.ListIngredients.Add(i);
+                    r.ListSteps.Add(s);
+                }
+            }
+            return r;
         }
     }
 }

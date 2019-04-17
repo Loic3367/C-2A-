@@ -41,7 +41,7 @@
                         <GridViewColumn Header="Nombre de personne"  DisplayMemberBinding="{Binding NbrPeople}"/>
                         <GridViewColumn Header="Coût"  DisplayMemberBinding="{Binding Cost}"/>
                         <GridViewColumn Header="Categorie "  DisplayMemberBinding="{Binding Categorie}"/>
-                        <GridViewColumn Header="Address"  DisplayMemberBinding="{Binding Difficulty}"/>
+                        <GridViewColumn Header="Difficultée"  DisplayMemberBinding="{Binding Difficulty}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

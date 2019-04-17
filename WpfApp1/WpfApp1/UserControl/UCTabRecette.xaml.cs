@@ -28,7 +28,10 @@ namespace WpfApp1
             //Recette sélectionnée sans la liste Ingredients liés et sans la liste d'étapes
             Recipes selRecipe = (Recipes)((ListViewItem)sender).Content;
 
-            Recipes r = DataAccess.Dal.GetStepsAndIngredients(selRecipe);
+            DataAccess.Dal.GetListIngre(selRecipe);
+            DataAccess.Dal.GetListSteps(selRecipe);
+            ShowSelRecipe recipeForm = new ShowSelRecipe(selRecipe);
+            recipeForm.Show();
         }
     }
 }

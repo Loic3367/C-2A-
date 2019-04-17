@@ -8,7 +8,7 @@ namespace WpfApp1
 {
     public class Steps
     {
-        public int Number { get; set; }
+        public long Number { get; set; }
         public string Description { get; set; }
     }
 }

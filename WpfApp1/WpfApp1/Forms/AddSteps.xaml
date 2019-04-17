@@ -15,6 +15,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,12 +25,14 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Grid.Row="0" Content="1" x:Name="lbl1"/>
-        <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" x:Name="tb1" Margin="5" MinWidth="250" TextWrapping="Wrap" MaxWidth="500"/>
+        <TextBox Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" x:Name="tb1" Margin="1" MinWidth="250" TextWrapping="Wrap" MaxWidth="500"/>
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" x:Name="pnl1" />
         <Button Grid.Column="6" Grid.Row="0" Click="AddListSteps_Click" Height="30" Width="30">
             <Image Source="/Images/add-icon.png"></Image>
         </Button>
-
+        <Button Grid.Column="7" Grid.Row="0" Click="AddListStep_Click" Height="30" Width="30">
+            <Image Source="/Images/minus-icon.png"></Image>
+        </Button>
         <Button Content="Sauvegarder la recette" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Click="addRecipesToBDD" Margin="5"/>
     </Grid>
 </Window>

@@ -43,7 +43,7 @@ namespace WpfApp1
         public long Id { get; set; }     
         private string name { get; set; }     
         private string expirationDate { get; set; }
-        private int quantite { get; set; }     
+        private long quantite { get; set; }     
         public MeasureIngredient measureUnit { get; set; }
 
         public string Name
@@ -86,7 +86,7 @@ namespace WpfApp1
             }
         }
 
-        public int Quantite
+        public long Quantite
         {
             get
             {

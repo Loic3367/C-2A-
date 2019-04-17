@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Text;
 
 namespace WpfApp1
 {
@@ -78,12 +79,13 @@ namespace WpfApp1
 
         public void InsertListIngredients(long idRecette, Ingredient ingre)
         {
-            string query = "INSERT INTO recette_ingredient (Idrecette, Idingredient,Quantite) VALUES (@idrece, @idingre,@quantite)";
+            string query = "INSERT INTO recette_ingredient (Idrecette, Idingredient,Quantite, Nom_Ingre) VALUES (@idrece, @idingre,@quantite,@nom)";
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
             {
                 command.Parameters.AddWithValue("@idrece", idRecette);
                 command.Parameters.AddWithValue("@idingre", ingre.Id);
                 command.Parameters.AddWithValue("@quantite", ingre.Quantite);
+                command.Parameters.AddWithValue("@nom", ingre.Name);
 
                 int result = command.ExecuteNonQuery();
             }
@@ -182,28 +184,46 @@ namespace WpfApp1
             }
         }
 
-        public Recipes GetStepsAndIngredients(Recipes r)
+        public void GetListSteps(Recipes r)
         {
-            string query = "SELECT Etape.Idetape, Etape.Description, recette_ingredient.Idingredient, recette_ingredient.Quantite FROM Etape " +
-                "INNER JOIN recette_ingredient ON recette_ingredient.Id=@idrecette INNER JOIN Etape ON Etape.Id=@idrecette";
+            string query = "SELECT Idetape, Description FROM Etape WHERE Idrecette = @idrecette";
             using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
             {
+                List<Steps> ls = new List<Steps>();
                 cmd.Parameters.AddWithValue("@idrecette", r.ID);
                 SQLiteDataReader rdr = cmd.ExecuteReader();
-                if(rdr.Read())
+                while(rdr.Read())
+                {    
+                    Steps s = new Steps();
+                    s.Number = (long)rdr["Idetape"];// TO DO
+                    byte[] tb = (byte[])rdr["Description"];
+                    s.Description = Encoding.UTF8.GetString(tb, 0, tb.Length);                
+                    ls.Add(s);
+                }
+
+                r.ListSteps = ls;
+            }
+        }
+
+        public void GetListIngre(Recipes r)
+        {
+            List<Ingredient> li = new List<Ingredient>();
+            string query = "SELECT Idingredient, Quantite, Nom_Ingre FROM recette_ingredient WHERE Idrecette = @idrecette";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {               
+                cmd.Parameters.AddWithValue("@idrecette", r.ID);
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
                 {
                     Ingredient i = new Ingredient();
                     i.Id = (long)rdr["Idingredient"];
-                    i.Quantite = (int)(long)rdr["Quantite"];//TO DO
-                    Steps s = new Steps();
-                    s.Number = (int)(long)rdr["Idetape"];// TO DO
-                    s.Description = (string)rdr["Description"];
-
-                    r.ListIngredients.Add(i);
-                    r.ListSteps.Add(s);
+                    i.Name = (string)rdr["Nom_Ingre"];
+                    i.Quantite = (long)rdr["Quantite"];
+                    li.Add(i);                    
                 }
             }
-            return r;
+            r.ListIngredients = li;
         }
+        
     }
 }

@@ -19,6 +19,7 @@ namespace WpfApp1
             InitializeComponent();
             rcp = recipe;
             listRecipes = r;
+            ObservableCollection<Steps> collStep = new ObservableCollection<Steps>();
         }
         private void AddListSteps_Click(object sender, RoutedEventArgs e)
         {
@@ -27,6 +28,7 @@ namespace WpfApp1
             uCSteps.lblNum.Content = numStep;
             numStep++;
             Size size = uCSteps.RenderSize;
+            
             ScrollViewer scroll = new ScrollViewer();
             pnl1.Children.Add(uCSteps);
             pnl1.RenderSize = size;
@@ -54,6 +56,15 @@ namespace WpfApp1
             foreach(Steps s in rcp.ListSteps)
             {
                 DataAccess.Dal.InsertSteps(numRcp, s);
+            }
+        }
+
+        private void AddListStep_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(UCSteps item in pnl1.Children)
+            {
+                listSteps.RemoveAt(pnl1.Children.Count -1);
+                
             }
         }
     }

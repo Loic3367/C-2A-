@@ -21,73 +21,16 @@ namespace WpfApp1
 
     public partial class AddRecipes : Window
     {
-        // Region for GetDifficulty & GetCosts
-        #region
-        static IReadOnlyList<Cost> GetCosts()
+        AddRecipeViewModel vm;
+        public AddRecipes(AddRecipeViewModel vm)
         {
-            List<Cost> ret = new List<Cost>();
-            foreach (Cout cost in Enum.GetValues(typeof(Cout)))
-                ret.Add(new Cost() { valeur = cost });
-            return ret;
-        }
-        static IReadOnlyList<Difficulty> GetDifficulty()
-        {
-            List<Difficulty> ret = new List<Difficulty>();
-            foreach (Difficultee diff in Enum.GetValues(typeof(Difficultee)))
-                ret.Add(new Difficulty() { value = diff });
-            return ret;
-        }
-
-        static IReadOnlyList<Category> getCategories()
-        {
-            List<Category> ret = new List<Category>();
-            foreach (Categorie cate in Enum.GetValues(typeof(Categorie)))
-                ret.Add(new Category() { value = cate });
-            return ret;
-        }
-        #endregion
-        private ObservableCollection<Recipes> listRecipes;
-        public AddRecipes()
-        {
-
+            this.vm = vm;
+            this.DataContext = this.vm;
             InitializeComponent();
-            cbDifficulte.ItemsSource = GetDifficulty();
-            cbCout.ItemsSource = GetCosts();
-            cbCategories.ItemsSource = getCategories();
-        }
-
-        public AddRecipes(ObservableCollection<Recipes> r)
-        {
-
-            InitializeComponent();
-            cbDifficulte.ItemsSource = GetDifficulty();
-            cbCout.ItemsSource = GetCosts();
-            cbCategories.ItemsSource = getCategories();
-            listRecipes = r;
+          
         }
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
-        {
-            Recipes recipe = new Recipes();
-            try
-            {      
-                recipe.Nom = RecipeName.Text;
-                recipe.CookTime = Int32.Parse(CookTime.Text);
-                recipe.PrepTime = Int32.Parse(PrepTime.Text);
-                recipe.Cost = (Cost)cbCout.SelectedItem;
-                recipe.Difficulty = (Difficulty)cbDifficulte.SelectedItem;
-                recipe.NbrPeople = Int32.Parse(cbNbrPers.Text);
-                recipe.Categorie = (Category)cbCategories.SelectedItem;
-                recipe.CreateurId = Profil.CurrentProfil.ID;
-                AddListIngredient addIngredient = new AddListIngredient(recipe,listRecipes);
-                this.Close();
-                addIngredient.ShowDialog();
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }       
-        }
+            => this.vm.ShowListIngreForm();
     }
 }

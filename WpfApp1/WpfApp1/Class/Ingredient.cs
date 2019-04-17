@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace WpfApp1
 {
@@ -37,96 +38,14 @@ namespace WpfApp1
     }
     #endregion
     
-    public class Ingredient : INotifyPropertyChanged
+    public class Ingredient 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         public long Id { get; set; }     
-        private string name { get; set; }     
-        private string expirationDate { get; set; }
-        private long quantite { get; set; }     
-        public MeasureIngredient measureUnit { get; set; }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                if (value != name)
-                {
-                    name = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Nom"));
-                    }
-                }
-            }
-        }
-
-        public string ExpirationDate
-        {
-            get
-            {
-                return expirationDate;
-            }
-
-            set
-            {
-                if (value != expirationDate)
-                {
-                    expirationDate = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Date d'expiration"));
-                    }
-                }
-            }
-        }
-
-        public long Quantite
-        {
-            get
-            {
-                return quantite;
-            }
-
-            set
-            {
-                if (value != quantite)
-                {
-                    quantite = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Quantité"));
-                    }
-                }
-            }
-        }
-
-        public MeasureIngredient MeasureUnit
-        {
-            get
-            {
-                return measureUnit;
-            }
-
-            set
-            {
-                if (value != measureUnit)
-                {
-                    measureUnit = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Indice de mesure"));
-                    }
-                }
-            }
-        }
-
-
+        public string Name { get; set; }     
+        public string ExpirationDate { get; set; }
+        public long Quantite { get; set; }     
+        public MeasureIngredient MeasureUnit { get; set; }
 
         public Ingredient()
         {
@@ -138,12 +57,62 @@ namespace WpfApp1
             this.ExpirationDate = myExpiraDate;
             this.MeasureUnit = myUnit;
         }
-
-        
-
         public override string ToString()
         {
             return Name +" ("+ MeasureUnit+")";
         }
+    }
+
+    public class IngredientViewModel : ViewModelBase
+    {
+        long id;
+        long quantite;
+        public long Id
+        {
+            get { return this.id; }
+            set
+            {
+                this.id = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long Quantite
+        {
+            get { return this.quantite; }
+            set
+            {
+                this.quantite = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public IngredientViewModel()
+        {
+            
+        }
+        
+    }
+    public class AddIngredientsViewModel : ViewModelBase
+    {
+        public ObservableCollection<IngredientViewModel> listIngre { get; }
+            = new ObservableCollection<IngredientViewModel>();
+        Recipes current;
+        ObservableCollection<Recipes> allRecipies;
+        ObservableCollection<Ingredient> li = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
+        public AddIngredientsViewModel(Recipes current, ObservableCollection<Recipes> allRecipies)
+        {
+            this.current = current;
+            this.allRecipies = allRecipies;
+            //At least one by default.
+            this.AddEmpty();
+        }
+        public void AddEmpty()
+        {
+            this.listIngre.Add(new IngredientViewModel());
+        }
+        public void RemoveLast()
+        {
+            this.listIngre.RemoveAt(this.listIngre.Count - 1);
+        }
+        
     }
 }

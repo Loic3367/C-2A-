@@ -26,7 +26,7 @@ namespace WpfApp1
                 {
                     Ingredient ingre = new Ingredient();
                     ingre.Id = (long)rdr["Id"];
-                    ingre.Name = (string)rdr["Nom"];
+                    ingre.Name= (string)rdr["Nom"];
 
                     ingre.MeasureUnit = (MeasureIngredient)(Int64)rdr["UniteMesure"];//Droite to Gauche (Int --> MeasureIngredient)
                     ingre.ExpirationDate = (string)rdr["DatePeremption"];

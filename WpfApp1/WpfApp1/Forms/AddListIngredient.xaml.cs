@@ -24,17 +24,18 @@ namespace WpfApp1
         List<Ingredient> LI = new List<Ingredient>();
         List<Ingredient> IngreList { get; set; }
         private ObservableCollection<Recipes> listRecipes;
-
-        public AddListIngredient(Recipes recipe, ObservableCollection<Recipes> r)
+        AddIngredientsViewModel vm;
+        public AddListIngredient(AddIngredientsViewModel vm)
         {
+            this.vm = vm;
+            this.DataContext = vm;
             InitializeComponent();        
-            rcp = recipe;
-            listRecipes = r;
-            
-            IngreList = DataAccess.Dal.SelectAllIngredients();
-            cbSelIngre.ItemsSource = DataAccess.Dal.SelectAllIngredients();
+            //rcp = recipe;
+            //listRecipes = r;          
+            IngreList = DataAccess.Dal.SelectAllIngredients(); 
            
         }
+        /*
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
             Ingredient ingr = new Ingredient();
@@ -50,11 +51,12 @@ namespace WpfApp1
                 LI.Add(ingre);
             }
             rcp.ListIngredients = LI;
-            AddSteps stepsForm = new AddSteps(rcp,listRecipes);
+            var stepsVm = new AddStepsViewModel(rcp, listRecipes);
+            AddSteps stepsForm = new AddSteps(stepsVm);
             this.Close();
             stepsForm.Show();
         }
-
+        */
         private void AddListIngre_Click(object sender, RoutedEventArgs e)
         {
             UCIngredients uCIngredients = new UCIngredients();         

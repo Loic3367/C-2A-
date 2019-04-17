@@ -7,60 +7,56 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="AddRecipes" Height="450" Width="720">
-    
+
     <Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25"/>
-                <ColumnDefinition Width="175"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="175"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="175"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="25"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Label Grid.Column="2" Grid.ColumnSpan="3" Content="Veuillez compléter les champs suivants afin de créer votre recette"/>
-            <Label Grid.Column="1" Grid.Row="1" Content="Nom de la recette :" Margin="5"/>
-            <TextBox Grid.Column="2" Grid.Row="1" Margin="5" x:Name="RecipeName"/>
-            <Label Grid.Column="1" Grid.Row="2" Content="Difficulté :" Margin="5"/>
-            <ComboBox Grid.Column="2" Grid.Row="2" x:Name="cbDifficulte" Margin="5"/>
-            <Label Grid.Column="1" Grid.Row="3" Content="Temps de préparation (min) :" Margin="5"/>
-            <TextBox Grid.Column="2" Grid.Row="3" Margin="5" x:Name="PrepTime"/>
-            <Label Grid.Column="3" Grid.Row="1" Content="Temps de cuisson (min) :" Margin="5"/>
-            <TextBox Grid.Column="4" Grid.Row="1" Margin="5" x:Name="CookTime"/>
-            <Label Grid.Column="3" Grid.Row="2" Content="Nombre de personnes :" Margin="5"/>
-            <ComboBox Grid.Column="4" Grid.Row="2" Margin="5" x:Name="cbNbrPers">
-                <ComboBoxItem Name="pers2">2</ComboBoxItem>
-                <ComboBoxItem Name="pers3">3</ComboBoxItem>
-                <ComboBoxItem Name="pers4">4</ComboBoxItem>
-                <ComboBoxItem Name="pers5">5</ComboBoxItem>
-                <ComboBoxItem Name="pers6">6</ComboBoxItem>
-                <ComboBoxItem Name="pers7">7</ComboBoxItem>
-                <ComboBoxItem Name="pers8">8</ComboBoxItem>
-                <ComboBoxItem Name="pers9">9</ComboBoxItem>
-                <ComboBoxItem Name="pers10">10</ComboBoxItem>
-            </ComboBox>
-            <Label Grid.Column="3" Grid.Row="3" Content="Coût" Margin="5"/>
-            <ComboBox Grid.Column="4" Grid.Row="3" Margin="5" x:Name="cbCout"/>
-            <Button Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Margin="5" Content="Ajouter Ingrédient" Click="ButtonAddIngredient_Click"/>
-            <Label Grid.Column="1" Grid.Row="5" Margin="5" Content="Commentaires :" />
-            <Label Grid.Column="1" Grid.Row="4" Margin="5" Content="Catégorie :" />
-            <ComboBox Grid.Column="2" Grid.Row="4" Margin="5" Grid.ColumnSpan="3"  x:Name="cbCategories"/>
-            <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="5" x:Name="Comments"/>
-                    
-        </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="2" Grid.ColumnSpan="3" Content="Veuillez compléter les champs suivants afin de créer votre recette"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Nom de la recette :" Margin="5"/>
+        <TextBox Grid.Column="2" Grid.Row="1" Margin="5" Text="{Binding Name}"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="Difficulté :" Margin="5"/>
+        <ComboBox Grid.Column="2" Grid.Row="2" ItemsSource="{Binding Diff}" SelectedItem="{Binding Difficulty}" Margin="5"/>
+
+        <Label Grid.Column="1" Grid.Row="3" Content="Temps de préparation (min) :" Margin="5"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Margin="5" Text="{Binding PrepTime}"/>
+        <Label Grid.Column="3" Grid.Row="1" Content="Temps de cuisson (min) :" Margin="5"/>
+        <TextBox Grid.Column="4" Grid.Row="1" Margin="5" Text="{Binding CookTime}"/>
+        <Label Grid.Column="3" Grid.Row="2" Content="Nombre de personnes :" Margin="5"/>
+        <ComboBox Grid.Column="4" Grid.Row="2" Margin="5" Text="{Binding NbrPeople}">
+            <ComboBoxItem Name="pers2">2</ComboBoxItem>
+            <ComboBoxItem Name="pers3">3</ComboBoxItem>
+            <ComboBoxItem Name="pers4">4</ComboBoxItem>
+            <ComboBoxItem Name="pers5">5</ComboBoxItem>
+            <ComboBoxItem Name="pers6">6</ComboBoxItem>
+            <ComboBoxItem Name="pers7">7</ComboBoxItem>
+            <ComboBoxItem Name="pers8">8</ComboBoxItem>
+            <ComboBoxItem Name="pers9">9</ComboBoxItem>
+            <ComboBoxItem Name="pers10">10</ComboBoxItem>
+        </ComboBox>
+        <Label Grid.Column="3" Grid.Row="3" Content="Coût" Margin="5"/>
+        <ComboBox Grid.Column="4" Grid.Row="3" Margin="5"  ItemsSource="{Binding cost}" SelectedItem="{Binding Cost}"/>
+        <Button Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Margin="5" Content="Ajouter Ingrédient" Click="ButtonAddIngredient_Click"/>
+        <Label Grid.Column="1" Grid.Row="5" Margin="5" Content="Commentaires :" />
+        <Label Grid.Column="1" Grid.Row="4" Margin="5" Content="Catégorie :" />
+        <ComboBox Grid.Column="2" Grid.Row="4" Margin="5" Grid.ColumnSpan="3"  ItemsSource="{Binding category}" SelectedItem="{Binding Category}" />
+        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="5" Text="{Binding Comments}"/>
     </Grid>
 </Window>

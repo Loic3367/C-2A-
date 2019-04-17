@@ -19,7 +19,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddRecipes newRecipes = new AddRecipes(listRecipes);
+            AddRecipes newRecipes = new AddRecipes(new AddRecipeViewModel(new ObservableCollection<Recipes>()));
             newRecipes.Show();
         }
 

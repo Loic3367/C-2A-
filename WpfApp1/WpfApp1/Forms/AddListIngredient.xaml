@@ -26,17 +26,41 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Grid.Column="1" Grid.Row="0" Content="Sélectionner un ingrédient :" />
-        <ComboBox Grid.Column="2" Grid.Row="0" x:Name="cbSelIngre"/>
-        <Label Grid.Column="3" Grid.Row="0" Content="et la quantité :"/>
-        <TextBox Grid.Column="4" Grid.Row="0" x:Name="tbQuantite"/>
+
+        <ItemsControl
+            ItemsSource="{Binding listIngre}"
+            Grid.Column="0"          
+            Grid.Row="0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="1" Grid.Row="0" Content="Sélectionner un ingrédient :" />
+                        <ComboBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding li}"  x:Name="cbSelIngre"/>
+                        <Label Grid.Column="3" Grid.Row="0" Content="et la quantité :"/>
+                        <TextBox Grid.Column="4" Grid.Row="0" Text="{Binding Quantite}"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Button Grid.Column="6" Grid.Row="0" Click="AddListIngre_Click" Height="30" Width="30">
             <Image Source="/Images/add-icon.png"></Image>
         </Button>
         <Button Grid.Column="7" Grid.Row="0" Click="AddListIngre_Click" Height="30" Width="30">
             <Image Source="/Images/minus-icon.png"></Image>
         </Button>
-        <Button Grid.Column="2" Grid.Row="2" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder les ingrédients" Click="AddIngredient_Click"/>
+        <Button Grid.Column="2" Grid.Row="2" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder les ingrédients"/>
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" x:Name="pnl1" />
     </Grid>
 </Window>

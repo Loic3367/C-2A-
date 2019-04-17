@@ -24,8 +24,8 @@ namespace WpfApp1
         List<Ingredient> LI = new List<Ingredient>();
         List<Ingredient> IngreList { get; set; }
         private ObservableCollection<Recipes> listRecipes;
-        AddIngredientsViewModel vm;
-        public AddListIngredient(AddIngredientsViewModel vm)
+        AddRecipeViewModel vm;
+        public AddListIngredient(AddRecipeViewModel vm)
         {
             this.vm = vm;
             this.DataContext = vm;

@@ -242,20 +242,15 @@ namespace WpfApp1
                 this.NotifyPropertyChanged();
             }
         }
-        public RecipeViewModel(string name, List<Ingredient> myIngredients, List<Steps> mySteps, 
-            Difficulty myDiff, long myTimePrep, long myTimeCook, long myPeopleNbr, Cost myCosts, Category myCategories)
+        public RecipeViewModel()
         {
-            this.Name = name;
-            this.ListIngredients = myIngredients;
-            this.ListSteps = mySteps;
-            this.Difficulty = myDiff;
-            this.PrepTime = myTimePrep;
-            this.CookTime = myTimeCook;
-            this.NbrPeople = myPeopleNbr;
-            this.Cost = myCosts;
-            this.Categorie = myCategories;
-        }
 
+        }
+        
+        public RecipeViewModel(string n)
+        {
+            this.Name = n;
+        }
         
     }
 
@@ -286,12 +281,146 @@ namespace WpfApp1
         }
         #endregion
 
-        public RecipeViewModel recipe { get; }
+        public RecipeViewModel recipe = new RecipeViewModel();
         public AddIngredientsViewModel model { get; set; }
         public ObservableCollection<Difficulty> Diff { get; } = GetDifficulty();
-        public ObservableCollection<Cost> cost { get; } = GetCosts();
+        public ObservableCollection<Cost> EnumCost { get; } = GetCosts();
         public ObservableCollection<Category> category { get; } = getCategories();
         public ObservableCollection<Recipes> allRecipies;
+
+        public long ID { get; }
+        string name { get; set; }
+        List<Ingredient> listIngredients { get; set; }
+        List<Steps> listSteps { get; set; }
+        Difficulty difficulty { get; set; }
+        long prepTime { get; set; }
+        long cookTime { get; set; }
+        long nbrPeople { get; set; }
+        string dateCreation { get; set; }
+        Cost cost { get; set; }
+        Category categorie { get; set; }
+        long creatorId { get; set; }
+
+        byte[] comments { get; set; }
+
+        public string Name
+        {
+            get { return this.name; }
+            set
+            {
+                this.name = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public List<Ingredient> ListIngredients
+        {
+            get { return this.listIngredients; }
+            set
+            {
+                this.listIngredients = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+
+        public List<Steps> ListSteps
+        {
+            get { return this.listSteps; }
+            set
+            {
+                this.listSteps = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public Difficulty Difficulty
+        {
+            get { return this.difficulty; }
+            set
+            {
+                this.difficulty = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long PrepTime
+        {
+            get { return this.prepTime; }
+            set
+            {
+                this.prepTime = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long CookTime
+        {
+            get { return this.cookTime; }
+            set
+            {
+                this.cookTime = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long NbrPeople
+        {
+            get { return this.nbrPeople; }
+            set
+            {
+                this.nbrPeople = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public string DateCreation
+        {
+            get { return this.dateCreation; }
+            set
+            {
+                this.dateCreation = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public Cost Cost
+        {
+            get { return this.cost; }
+            set
+            {
+                this.cost = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public Category Categorie
+        {
+            get { return this.categorie; }
+            set
+            {
+                this.categorie = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long CreatorId
+        {
+            get { return this.creatorId; }
+            set
+            {
+                this.creatorId = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public byte[] Comments
+        {
+            get { return this.comments; }
+            set
+            {
+                this.comments = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public AddRecipeViewModel()
+        {
+
+        }
+
+        public AddRecipeViewModel(string n)
+        {
+            this.Name = n;
+        }
 
         public AddRecipeViewModel(ObservableCollection<Recipes> allRecipies)
         {
@@ -300,8 +429,8 @@ namespace WpfApp1
 
         public AddIngredientsViewModel ShowListIngreForm()
         {
-            string test = recipe.Name;
-            AddListIngredient listIngredient = new AddListIngredient(model);
+           
+            AddListIngredient listIngredient = new AddListIngredient(this);
             listIngredient.Show();
             return model;
             

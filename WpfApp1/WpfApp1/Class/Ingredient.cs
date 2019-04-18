@@ -59,14 +59,18 @@ namespace WpfApp1
         }
         public override string ToString()
         {
-            return Name +" ("+ MeasureUnit+")";
+            return Name;
         }
     }
 
     public class IngredientViewModel : ViewModelBase
     {
+        public ObservableCollection<Ingredient> li { get; } = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
         long id;
         long quantite;
+        string name;
+        string expirationDate;
+        MeasureIngredient measureUnit;
         public long Id
         {
             get { return this.id; }
@@ -85,20 +89,79 @@ namespace WpfApp1
                 this.NotifyPropertyChanged();
             }
         }
+        public string Name
+        {
+            get { return this.name; }
+            set
+            {
+                this.name = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public string ExpirationDate
+        {
+            get { return this.expirationDate; }
+            set
+            {
+                this.expirationDate = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public MeasureIngredient MeasureUnit
+        {
+            get { return this.measureUnit; }
+            set
+            {
+                this.measureUnit = value;
+                this.NotifyPropertyChanged();
+            }
+        }
         public IngredientViewModel()
         {
             
+        
         }
         
     }
     public class AddIngredientsViewModel : ViewModelBase
     {
-        public ObservableCollection<IngredientViewModel> listIngre { get; }
+        public ObservableCollection<IngredientViewModel> listIngre { get; set; }
             = new ObservableCollection<IngredientViewModel>();
-        Recipes current;
-        ObservableCollection<Recipes> allRecipies;
-        ObservableCollection<Ingredient> li = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
-        public AddIngredientsViewModel(Recipes current, ObservableCollection<Recipes> allRecipies)
+        RecipeViewModel current;
+        ObservableCollection<RecipeViewModel> allRecipies;
+        
+        public ObservableCollection<Ingredient> li { get; } = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
+        long id;
+        long quantite;
+        string name;
+        public long Id
+        {
+            get { return this.id; }
+            set
+            {
+                this.id = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public long Quantite
+        {
+            get { return this.quantite; }
+            set
+            {
+                this.quantite = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public string Name
+        {
+            get { return this.name; }
+            set
+            {
+                this.name = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public AddIngredientsViewModel(RecipeViewModel current, ObservableCollection<RecipeViewModel> allRecipies)
         {
             this.current = current;
             this.allRecipies = allRecipies;
@@ -113,6 +176,19 @@ namespace WpfApp1
         {
             this.listIngre.RemoveAt(this.listIngre.Count - 1);
         }
-        
+
+        public RecipeViewModel GetListIngre(RecipeViewModel rvm)
+        {
+            rvm.ListIngredients = this.listIngre;
+            foreach(IngredientViewModel i in rvm.ListIngredients)
+            {
+                DataAccess.Dal.InsertListIngredients(rvm.ID, i);
+            }
+            return rvm;
+        }
+        public AddIngredientsViewModel GoToStepsForm()
+        {
+            return this;
+        }
     }
 }

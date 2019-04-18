@@ -21,8 +21,8 @@ namespace WpfApp1
 
     public partial class AddRecipes : Window
     {
-        AddRecipeViewModel vm;
-        public AddRecipes(AddRecipeViewModel vm)
+        RecipeViewModel vm;
+        public AddRecipes(RecipeViewModel vm)
         {
             this.vm = vm;
             this.DataContext = this.vm;
@@ -31,6 +31,10 @@ namespace WpfApp1
         }
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
-            => this.vm.ShowListIngreForm();
+        {
+            var nextVm = this.vm.ShowListIngreForm();
+            var nextForm = new AddListIngredient(nextVm,this.vm.allRecipies);
+            nextForm.Show();
+        }
     }
 }

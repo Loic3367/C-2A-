@@ -114,13 +114,44 @@ namespace WpfApp1
             this.Cost = myCosts;
             this.Categorie = myCategories;
         }
+        
     }
 
     public class RecipeViewModel : ViewModelBase
     {
-        public long ID { get; }
+        #region
+        static ObservableCollection<Cost> GetCosts()
+        {
+            ObservableCollection<Cost> ret = new ObservableCollection<Cost>();
+            foreach (Cout cost in Enum.GetValues(typeof(Cout)))
+                ret.Add(new Cost() { valeur = cost });
+            return ret;
+        }
+        static ObservableCollection<Difficulty> GetDifficulty()
+        {
+            ObservableCollection<Difficulty> ret = new ObservableCollection<Difficulty>();
+            foreach (Difficultee diff in Enum.GetValues(typeof(Difficultee)))
+                ret.Add(new Difficulty() { value = diff });
+            return ret;
+        }
+
+        static ObservableCollection<Category> getCategories()
+        {
+            ObservableCollection<Category> ret = new ObservableCollection<Category>();
+            foreach (Categorie cate in Enum.GetValues(typeof(Categorie)))
+                ret.Add(new Category() { value = cate });
+            return ret;
+        }
+        #endregion
+        public AddIngredientsViewModel model { get; set; }
+        public ObservableCollection<Difficulty> Diff { get; } = GetDifficulty();
+        public ObservableCollection<Cost> EnumCost { get; } = GetCosts();
+        public ObservableCollection<Category> category { get; } = getCategories();
+        public ObservableCollection<RecipeViewModel> allRecipies;
+
+        public long ID { get; set; }
         string name { get; set; }
-        List<Ingredient> listIngredients { get; set; }
+        ObservableCollection<IngredientViewModel> listIngredients { get; set; }
         List<Steps> listSteps { get; set; }
         Difficulty difficulty { get; set; }
         long prepTime { get; set; }
@@ -142,7 +173,8 @@ namespace WpfApp1
                 this.NotifyPropertyChanged();
             }
         }
-        public List<Ingredient> ListIngredients
+
+        public ObservableCollection<IngredientViewModel> ListIngredients
         {
             get { return this.listIngredients; }
             set
@@ -246,194 +278,16 @@ namespace WpfApp1
         {
 
         }
-        
-        public RecipeViewModel(string n)
-        {
-            this.Name = n;
-        }
-        
-    }
+ 
 
-    public class AddRecipeViewModel : ViewModelBase
-    {
-        #region
-        static ObservableCollection<Cost> GetCosts()
-        {
-            ObservableCollection<Cost> ret = new ObservableCollection<Cost>();
-            foreach (Cout cost in Enum.GetValues(typeof(Cout)))
-                ret.Add(new Cost() { valeur = cost });
-            return ret;
-        }
-        static ObservableCollection<Difficulty> GetDifficulty()
-        {
-            ObservableCollection<Difficulty> ret = new ObservableCollection<Difficulty>();
-            foreach (Difficultee diff in Enum.GetValues(typeof(Difficultee)))
-                ret.Add(new Difficulty() { value = diff });
-            return ret;
-        }
-
-        static ObservableCollection<Category> getCategories()
-        {
-            ObservableCollection<Category> ret = new ObservableCollection<Category>();
-            foreach (Categorie cate in Enum.GetValues(typeof(Categorie)))
-                ret.Add(new Category() { value = cate });
-            return ret;
-        }
-        #endregion
-
-        public RecipeViewModel recipe = new RecipeViewModel();
-        public AddIngredientsViewModel model { get; set; }
-        public ObservableCollection<Difficulty> Diff { get; } = GetDifficulty();
-        public ObservableCollection<Cost> EnumCost { get; } = GetCosts();
-        public ObservableCollection<Category> category { get; } = getCategories();
-        public ObservableCollection<Recipes> allRecipies;
-
-        public long ID { get; }
-        string name { get; set; }
-        List<Ingredient> listIngredients { get; set; }
-        List<Steps> listSteps { get; set; }
-        Difficulty difficulty { get; set; }
-        long prepTime { get; set; }
-        long cookTime { get; set; }
-        long nbrPeople { get; set; }
-        string dateCreation { get; set; }
-        Cost cost { get; set; }
-        Category categorie { get; set; }
-        long creatorId { get; set; }
-
-        byte[] comments { get; set; }
-
-        public string Name
-        {
-            get { return this.name; }
-            set
-            {
-                this.name = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public List<Ingredient> ListIngredients
-        {
-            get { return this.listIngredients; }
-            set
-            {
-                this.listIngredients = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-
-        public List<Steps> ListSteps
-        {
-            get { return this.listSteps; }
-            set
-            {
-                this.listSteps = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public Difficulty Difficulty
-        {
-            get { return this.difficulty; }
-            set
-            {
-                this.difficulty = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public long PrepTime
-        {
-            get { return this.prepTime; }
-            set
-            {
-                this.prepTime = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public long CookTime
-        {
-            get { return this.cookTime; }
-            set
-            {
-                this.cookTime = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public long NbrPeople
-        {
-            get { return this.nbrPeople; }
-            set
-            {
-                this.nbrPeople = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public string DateCreation
-        {
-            get { return this.dateCreation; }
-            set
-            {
-                this.dateCreation = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public Cost Cost
-        {
-            get { return this.cost; }
-            set
-            {
-                this.cost = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public Category Categorie
-        {
-            get { return this.categorie; }
-            set
-            {
-                this.categorie = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public long CreatorId
-        {
-            get { return this.creatorId; }
-            set
-            {
-                this.creatorId = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public byte[] Comments
-        {
-            get { return this.comments; }
-            set
-            {
-                this.comments = value;
-                this.NotifyPropertyChanged();
-            }
-        }
-        public AddRecipeViewModel()
-        {
-
-        }
-
-        public AddRecipeViewModel(string n)
-        {
-            this.Name = n;
-        }
-
-        public AddRecipeViewModel(ObservableCollection<Recipes> allRecipies)
+        public RecipeViewModel(ObservableCollection<RecipeViewModel> allRecipies)
         {
             this.allRecipies = allRecipies;
         }
 
-        public AddIngredientsViewModel ShowListIngreForm()
+        public RecipeViewModel ShowListIngreForm()
         {
-           
-            AddListIngredient listIngredient = new AddListIngredient(this);
-            listIngredient.Show();
-            return model;
-            
+            return this;
         }
         
     }

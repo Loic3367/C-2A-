@@ -7,13 +7,15 @@ namespace WpfApp1
     /// </summary>
     public partial class ShowSelRecipe : Window
     {
+        private RecipeViewModel rvm;
         public ShowSelRecipe()
         {
             InitializeComponent();
         }
-        public ShowSelRecipe(Recipes r)
+        public ShowSelRecipe(RecipeViewModel r)
         {
             InitializeComponent();
+            rvm = r;
         }
     }
 }

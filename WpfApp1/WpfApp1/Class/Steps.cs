@@ -35,9 +35,9 @@ namespace WpfApp1
     {
         public ObservableCollection<StepViewModel> Steps { get; }
             = new ObservableCollection<StepViewModel>();
-        Recipes current;
-        ObservableCollection<Recipes> allRecipies;
-        public AddStepsViewModel(Recipes current, ObservableCollection<Recipes> allRecipies)
+        RecipeViewModel current;
+        ObservableCollection<RecipeViewModel> allRecipies;
+        public AddStepsViewModel(RecipeViewModel current, ObservableCollection<RecipeViewModel> allRecipies)
         {
             this.current = current;
             this.allRecipies = allRecipies;
@@ -63,6 +63,7 @@ namespace WpfApp1
                 })
                 .ToList();
             DataAccess.Dal.InsertRecipe(toInsert);
+            allRecipies.Add(toInsert);
         }
     }
 }

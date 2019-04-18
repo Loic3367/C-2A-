@@ -36,7 +36,7 @@
             <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6">
                 <ListView.View>
                     <GridView x:Name="grdNames">
-                        <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Nom}"/>
+                        <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Temps de préparation"  DisplayMemberBinding="{Binding PrepTime}"/>
                         <GridViewColumn Header="Nombre de personne"  DisplayMemberBinding="{Binding NbrPeople}"/>
                         <GridViewColumn Header="Coût"  DisplayMemberBinding="{Binding Cost}"/>

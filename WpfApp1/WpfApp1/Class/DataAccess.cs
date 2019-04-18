@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SQLite;
 using System.Text;
 
@@ -54,7 +55,7 @@ namespace WpfApp1
             return "Ingrédients bien ajoutés";
         }
 
-        public long InsertRecipe(Recipes recette)
+        public long InsertRecipe(RecipeViewModel recette)
         {
             String query = "INSERT INTO Recette (Nom,TempsCuisson,TempsPreparation, NombrePersonne,Cout,Categorie, DateCreation, Difficulte, Createur_ID)" +
                 " VALUES (@name,@tempscuisson, @tempspreparation,@nombrepersonne,@cout,@categorie,@datecreation,@difficulte,@createurid);" +
@@ -62,7 +63,7 @@ namespace WpfApp1
 
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
             {
-                command.Parameters.AddWithValue("@name", recette.Nom);
+                command.Parameters.AddWithValue("@name", recette.Name);
                 command.Parameters.AddWithValue("@tempscuisson", recette.CookTime);
                 command.Parameters.AddWithValue("@tempspreparation", recette.PrepTime);
                 command.Parameters.AddWithValue("@nombrepersonne", recette.NbrPeople);
@@ -70,14 +71,14 @@ namespace WpfApp1
                 command.Parameters.AddWithValue("@categorie", recette.Categorie);
                 command.Parameters.AddWithValue("@datecreation", DateTime.Now);
                 command.Parameters.AddWithValue("@difficulte", recette.Difficulty);
-                command.Parameters.AddWithValue("@createurid", recette.CreateurId);
+                command.Parameters.AddWithValue("@createurid", recette.CreatorId);
 
 
                 return (long)command.ExecuteScalar();
             }
         }
 
-        public void InsertListIngredients(long idRecette, Ingredient ingre)
+        public void InsertListIngredients(long idRecette, IngredientViewModel ingre)
         {
             string query = "INSERT INTO recette_ingredient (Idrecette, Idingredient,Quantite, Nom_Ingre) VALUES (@idrece, @idingre,@quantite,@nom)";
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
@@ -105,9 +106,9 @@ namespace WpfApp1
 
         }
 
-        public List<Recipes> getAllRecipes()
+        public List<RecipeViewModel> getAllRecipes()
         {
-            List<Recipes> listrec = new List<Recipes>();
+            List<RecipeViewModel> listrec = new List<RecipeViewModel>();
 
             string query = "SELECT * FROM Recette";
             using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
@@ -115,9 +116,9 @@ namespace WpfApp1
                 SQLiteDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Recipes rec = new Recipes();
+                    RecipeViewModel rec = new RecipeViewModel();
                     rec.ID = (long)rdr["Id"];
-                    rec.Nom = (string)rdr["Nom"];
+                    rec.Name = (string)rdr["Nom"];
                     rec.CookTime = (long)rdr["TempsCuisson"];
                     rec.PrepTime = (long)rdr["TempsPreparation"];
                     rec.NbrPeople = (long)rdr["NombrePersonne"];
@@ -125,7 +126,7 @@ namespace WpfApp1
                     rec.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
                     //rec.DateCreation = (string)rdr["DateCreation"];
                     rec.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
-                    rec.CreateurId = (long)rdr["Createur_ID"];
+                    rec.CreatorId = (long)rdr["Createur_ID"];
                     listrec.Add(rec);
 
                 }
@@ -184,7 +185,7 @@ namespace WpfApp1
             }
         }
 
-        public void GetListSteps(Recipes r)
+        public void GetListSteps(RecipeViewModel r)
         {
             string query = "SELECT Idetape, Description FROM Etape WHERE Idrecette = @idrecette";
             using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
@@ -205,9 +206,9 @@ namespace WpfApp1
             }
         }
 
-        public void GetListIngre(Recipes r)
+        public void GetListIngre(RecipeViewModel r)
         {
-            List<Ingredient> li = new List<Ingredient>();
+            ObservableCollection<IngredientViewModel> li = new ObservableCollection<IngredientViewModel>();
             string query = "SELECT Idingredient, Quantite, Nom_Ingre FROM recette_ingredient WHERE Idrecette = @idrecette";
             using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
             {               
@@ -215,7 +216,7 @@ namespace WpfApp1
                 SQLiteDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Ingredient i = new Ingredient();
+                    IngredientViewModel i = new IngredientViewModel();
                     i.Id = (long)rdr["Idingredient"];
                     i.Name = (string)rdr["Nom_Ingre"];
                     i.Quantite = (long)rdr["Quantite"];

@@ -9,24 +9,24 @@ namespace WpfApp1
     /// </summary>
     public partial class UCTabRecette : System.Windows.Controls.UserControl
     {
-        private ObservableCollection<Recipes> listRecipes;
+        private ObservableCollection<RecipeViewModel> listRecipes;
         public UCTabRecette()
         {
             InitializeComponent();
-            listRecipes = new ObservableCollection<Recipes>(DataAccess.Dal.getAllRecipes());
+            listRecipes = new ObservableCollection<RecipeViewModel>(DataAccess.Dal.getAllRecipes());
             lvMain.ItemsSource = listRecipes;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddRecipes newRecipes = new AddRecipes(new AddRecipeViewModel(new ObservableCollection<Recipes>()));
+            AddRecipes newRecipes = new AddRecipes(new RecipeViewModel(listRecipes));
             newRecipes.Show();
         }
 
         private void HandleDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //Recette sélectionnée sans la liste Ingredients liés et sans la liste d'étapes
-            Recipes selRecipe = (Recipes)((ListViewItem)sender).Content;
+            RecipeViewModel selRecipe = (RecipeViewModel)((ListViewItem)sender).Content;
 
             DataAccess.Dal.GetListIngre(selRecipe);
             DataAccess.Dal.GetListSteps(selRecipe);

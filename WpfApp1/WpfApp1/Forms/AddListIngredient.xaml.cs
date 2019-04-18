@@ -20,20 +20,17 @@ namespace WpfApp1
     /// </summary>
     public partial class AddListIngredient : Window
     {
-        Recipes rcp = new Recipes();
-        List<Ingredient> LI = new List<Ingredient>();
-        List<Ingredient> IngreList { get; set; }
-        private ObservableCollection<Recipes> listRecipes;
-        AddRecipeViewModel vm;
-        public AddListIngredient(AddRecipeViewModel vm)
-        {
-            this.vm = vm;
-            this.DataContext = vm;
-            InitializeComponent();        
-            //rcp = recipe;
-            //listRecipes = r;          
-            IngreList = DataAccess.Dal.SelectAllIngredients(); 
            
+        private ObservableCollection<RecipeViewModel> listRecipes;
+        RecipeViewModel rvm;
+        AddIngredientsViewModel ivm;
+        public AddListIngredient(RecipeViewModel vm, ObservableCollection<RecipeViewModel> listrvm)
+        {
+            rvm = vm;
+            this.listRecipes = listrvm;
+            this.ivm = new AddIngredientsViewModel(vm, listRecipes);
+            this.DataContext = ivm;
+            InitializeComponent();               
         }
         /*
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
@@ -57,14 +54,27 @@ namespace WpfApp1
             stepsForm.Show();
         }
         */
-        private void AddListIngre_Click(object sender, RoutedEventArgs e)
+        private void AddIngre_Click(object sender, RoutedEventArgs e)
+         => this.ivm.AddEmpty();
+
+        private void AddListIngres_Click(object sender, RoutedEventArgs e)
         {
-            UCIngredients uCIngredients = new UCIngredients();         
-            Size size = uCIngredients.RenderSize;
-            ScrollViewer scroll = new ScrollViewer();
-            pnl1.Children.Add(uCIngredients);
-            pnl1.RenderSize = size;
-            scroll.Content = pnl1;
+            this.ivm.GetListIngre(rvm);
+            var stepsVm = new AddStepsViewModel(rvm, listRecipes);
+            AddSteps stepsForm = new AddSteps(stepsVm);
+            this.Close();
+            stepsForm.Show();
+            
+            
         }
+        /*
+UCIngredients uCIngredients = new UCIngredients();         
+Size size = uCIngredients.RenderSize;
+ScrollViewer scroll = new ScrollViewer();
+pnl1.Children.Add(uCIngredients);
+pnl1.RenderSize = size;
+scroll.Content = pnl1;
+*/
+
     }
 }

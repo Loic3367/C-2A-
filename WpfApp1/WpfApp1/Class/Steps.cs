@@ -62,7 +62,12 @@ namespace WpfApp1
                     Number = svm.Num
                 })
                 .ToList();
-            DataAccess.Dal.InsertRecipe(toInsert);
+            //DataAccess.Dal.InsertRecipe(toInsert);
+            toInsert.ID = DataAccess.Dal.InsertRecipe(toInsert);
+            foreach (IngredientViewModel i in toInsert.ListIngredients)
+            {
+                DataAccess.Dal.InsertListIngredients(toInsert.ID, i);
+            }
             allRecipies.Add(toInsert);
         }
     }

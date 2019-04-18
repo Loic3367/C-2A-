@@ -17,7 +17,7 @@ namespace WpfApp1
             InitializeComponent();
             LoginWindow myLogWindow = new LoginWindow();
             myLogWindow.Show();                    
-            DataAccess.Dal.SelectAllIngredients();
+            
             listIngre = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
             lvMainIngre.ItemsSource = listIngre;
         }
@@ -25,7 +25,7 @@ namespace WpfApp1
         {
             Profil.CurrentProfil = p;
             InitializeComponent();
-            DataAccess.Dal.SelectAllIngredients();
+            //DataAccess.Dal.SelectAllIngredients();
             listIngre = new ObservableCollection<Ingredient>(DataAccess.Dal.SelectAllIngredients());
             lvMainIngre.ItemsSource = listIngre;
         }

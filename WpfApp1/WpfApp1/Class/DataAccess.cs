@@ -25,12 +25,10 @@ namespace WpfApp1
                 SQLiteDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Ingredient ingre = new Ingredient();
-                    ingre.Id = (long)rdr["Id"];
-                    ingre.Name= (string)rdr["Nom"];
-
-                    ingre.MeasureUnit = (MeasureIngredient)(Int64)rdr["UniteMesure"];//Droite to Gauche (Int --> MeasureIngredient)
-                    ingre.ExpirationDate = (string)rdr["DatePeremption"];
+                    
+                    Ingredient ingre = new Ingredient((long)rdr["Id"], (string)rdr["Nom"],
+                        (string)rdr["DatePeremption"], (MeasureIngredient)(Int64)rdr["UniteMesure"]);
+                    
                     ImportedIngredients.Add(ingre);
                 }
             }
@@ -84,9 +82,9 @@ namespace WpfApp1
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
             {
                 command.Parameters.AddWithValue("@idrece", idRecette);
-                command.Parameters.AddWithValue("@idingre", ingre.Id);
+                command.Parameters.AddWithValue("@idingre", ingre.Selected.Id);
                 command.Parameters.AddWithValue("@quantite", ingre.Quantite);
-                command.Parameters.AddWithValue("@nom", ingre.Name);
+                command.Parameters.AddWithValue("@nom", ingre.Selected.Name);
 
                 int result = command.ExecuteNonQuery();
             }
@@ -216,10 +214,8 @@ namespace WpfApp1
                 SQLiteDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    IngredientViewModel i = new IngredientViewModel();
-                    i.Id = (long)rdr["Idingredient"];
-                    i.Name = (string)rdr["Nom_Ingre"];
-                    i.Quantite = (long)rdr["Quantite"];
+                    IngredientViewModel i = new IngredientViewModel((long)rdr["Idingredient"], (string)rdr["Nom_Ingre"], (long)rdr["Quantite"]);
+                    
                     li.Add(i);                    
                 }
             }

@@ -14,8 +14,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="5"/>
@@ -31,7 +35,7 @@
             ItemsSource="{Binding listIngre}"
             Grid.Column="0"          
             Grid.Row="0"
-            Grid.ColumnSpan="5">
+            Grid.ColumnSpan="7">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -41,15 +45,12 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
                         <Label Grid.Column="1" Grid.Row="0" Content="Sélectionner un ingrédient :" />
-                        <ComboBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding li}" SelectedIndex="{Binding Id}" SelectedItem="{Binding Name}"/>
+                        <ComboBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding li}" SelectedIndex="{Binding Id}" SelectedItem="{Binding Selected}"/>
                         <Label Grid.Column="3" Grid.Row="0" Content="et la quantité :"/>
                         <TextBox Grid.Column="4" Grid.Row="0" Text="{Binding Quantite}"/>
                         <Label Grid.Column="5" Grid.Row="0" Content="{Binding MeasureUnit}"/>
@@ -57,10 +58,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Grid.Column="6" Grid.Row="0" Click="AddIngre_Click" Height="30" Width="30">
+        <Button Grid.Column="9" Grid.Row="0" Click="AddIngre_Click" Height="30" Width="30">
             <Image Source="/Images/add-icon.png"></Image>
         </Button>
-        <Button Grid.Column="7" Grid.Row="0"  Height="30" Width="30">
+        <Button Grid.Column="10" Grid.Row="0"  Height="30" Width="30">
             <Image Source="/Images/minus-icon.png"></Image>
         </Button>
         <Button Grid.Column="2" Grid.Row="2" Margin="5" Grid.ColumnSpan="2" Content="Sauvegarder les ingrédients" Click="AddListIngres_Click"/>

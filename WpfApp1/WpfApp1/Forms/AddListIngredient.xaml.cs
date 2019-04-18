@@ -32,28 +32,7 @@ namespace WpfApp1
             this.DataContext = ivm;
             InitializeComponent();               
         }
-        /*
-        private void AddIngredient_Click(object sender, RoutedEventArgs e)
-        {
-            Ingredient ingr = new Ingredient();
-            ingr = IngreList.Find(x => x.ToString() == cbSelIngre.Text);
-            ingr.Quantite = Int32.Parse(tbQuantite.Text);
-            LI.Add(ingr);
-            
-            foreach(UCIngredients item in pnl1.Children)
-            {
-                Ingredient ingre = new Ingredient();
-                ingre = IngreList.Find(x => x.ToString() == item.cbIngreSel.SelectedItem.ToString());               
-                ingre.Quantite = Int32.Parse(item.tbQuantite.Text);
-                LI.Add(ingre);
-            }
-            rcp.ListIngredients = LI;
-            var stepsVm = new AddStepsViewModel(rcp, listRecipes);
-            AddSteps stepsForm = new AddSteps(stepsVm);
-            this.Close();
-            stepsForm.Show();
-        }
-        */
+ 
         private void AddIngre_Click(object sender, RoutedEventArgs e)
          => this.ivm.AddEmpty();
 
@@ -67,14 +46,5 @@ namespace WpfApp1
             
             
         }
-        /*
-UCIngredients uCIngredients = new UCIngredients();         
-Size size = uCIngredients.RenderSize;
-ScrollViewer scroll = new ScrollViewer();
-pnl1.Children.Add(uCIngredients);
-pnl1.RenderSize = size;
-scroll.Content = pnl1;
-*/
-
     }
 }

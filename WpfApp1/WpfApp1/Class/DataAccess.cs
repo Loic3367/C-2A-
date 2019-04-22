@@ -132,6 +132,34 @@ namespace WpfApp1
             return listrec;
         }
 
+        public List<RecipeViewModel> getRecipesbyUser(long creatorID)
+        {
+            List<RecipeViewModel> listrec = new List<RecipeViewModel>();
+
+            string query = "SELECT * FROM Recette WHERE Createur_ID = @creatorID";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@creatorID", creatorID);
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    RecipeViewModel rec = new RecipeViewModel();
+                    rec.ID = (long)rdr["Id"];
+                    rec.Name = (string)rdr["Nom"];
+                    rec.CookTime = (long)rdr["TempsCuisson"];
+                    rec.PrepTime = (long)rdr["TempsPreparation"];
+                    rec.NbrPeople = (long)rdr["NombrePersonne"];
+                    rec.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
+                    rec.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
+                    //rec.DateCreation = (string)rdr["DateCreation"];
+                    rec.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
+                    rec.CreatorId = (long)rdr["Createur_ID"];
+                    listrec.Add(rec);
+
+                }
+            }
+            return listrec;
+        }
         public Profil GetProfil(Profil p)
         {
             Profil pflDB = new Profil();
@@ -194,7 +222,7 @@ namespace WpfApp1
                 while(rdr.Read())
                 {    
                     Steps s = new Steps();
-                    s.Number = (long)rdr["Idetape"];// TO DO
+                    s.Number = (long)rdr["Idetape"];
                     byte[] tb = (byte[])rdr["Description"];
                     s.Description = Encoding.UTF8.GetString(tb, 0, tb.Length);                
                     ls.Add(s);

@@ -42,7 +42,7 @@ namespace WpfApp1
             var stepsVm = new AddStepsViewModel(rvm, listRecipes);
             AddSteps stepsForm = new AddSteps(stepsVm);
             this.Close();
-            stepsForm.Show();
+            stepsForm.ShowDialog();
             
             
         }

@@ -25,6 +25,18 @@
         <Label Grid.Column="1" Grid.Row="0" x:Name="lblProfilName"/>
         <Button Grid.Row="0" Grid.Column="3" Content="Changer mot de passe" Click="ChangePassword_Click"/>
         <Label Content="Afficher un UserControl pour gérer toutes les recettes" Grid.Row="2" Grid.Column="2"/>
-
+        
+        <ListView x:Name="lvRecipesUser" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6">
+            <ListView.View>
+                <GridView x:Name="grdNames">
+                    <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Temps de préparation"  DisplayMemberBinding="{Binding PrepTime}"/>
+                    <GridViewColumn Header="Nombre de personne"  DisplayMemberBinding="{Binding NbrPeople}"/>
+                    <GridViewColumn Header="Coût"  DisplayMemberBinding="{Binding Cost}"/>
+                    <GridViewColumn Header="Categorie "  DisplayMemberBinding="{Binding Categorie}"/>
+                    <GridViewColumn Header="Difficultée"  DisplayMemberBinding="{Binding Difficulty}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

@@ -20,7 +20,10 @@ namespace WpfApp1
             this.InitializeComponent();
         }
         private void SaveButtonClick(object sender, RoutedEventArgs e)
-            => this.vm.SendToBDD();
+        { 
+            this.vm.SendToBDD();
+            this.Close();
+        }
         private void RemoveButtonClick(object sender, RoutedEventArgs e)
             => this.vm.RemoveLast();
         private void AddButtonClick(object sender, RoutedEventArgs e)

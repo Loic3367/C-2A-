@@ -14,8 +14,12 @@ namespace WpfApp1
         }
         public ShowSelRecipe(RecipeViewModel r)
         {
-            InitializeComponent();
             rvm = r;
+            this.DataContext = rvm;
+            
+            InitializeComponent();
+            lvListIngre.ItemsSource = rvm.ListIngredients;
+            lvListSteps.ItemsSource = rvm.ListSteps;
         }
     }
 }

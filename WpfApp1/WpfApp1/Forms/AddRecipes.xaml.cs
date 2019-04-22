@@ -34,7 +34,7 @@ namespace WpfApp1
         {
             var nextVm = this.vm.ShowListIngreForm();
             var nextForm = new AddListIngredient(nextVm,this.vm.allRecipies);
-            nextForm.Show();
+            nextForm.ShowDialog();
         }
     }
 }

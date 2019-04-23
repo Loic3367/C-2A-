@@ -16,6 +16,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" x:Name="lblNum"/>
-        <TextBox Grid.Row="0" Margin="5"  Grid.Column="1" x:Name="tbText" MinWidth="250" TextWrapping="Wrap" MaxWidth="500"/>
+        <TextBox Grid.Row="0" Margin="1"  Grid.Column="1" x:Name="tbText" MinWidth="250" TextWrapping="Wrap" MaxWidth="500"/>
     </Grid>
 </UserControl>

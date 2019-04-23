@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApp1
 {
@@ -74,7 +75,7 @@ namespace WpfApp1
                 DataAccess.Dal.InsertSteps(toInsert.ID, r);
             }
             allRecipies.Add(toInsert);
-            
+            MessageBox.Show("La recette a été correctement importée dans la BDD");
         }
     }
 }

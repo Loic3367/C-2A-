@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="AddRecipes" Height="300" Width="550">
+        Title="AddRecipes" Height="300" Width="580">
 
     <Grid>
         <Grid.ColumnDefinitions>

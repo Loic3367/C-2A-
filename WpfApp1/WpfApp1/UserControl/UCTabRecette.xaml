@@ -31,7 +31,7 @@
             </Button>
             <Label Grid.Column="1" Grid.Row="0" Content="Chercher recette par son nom :"/>
             <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="180 0 0 0" x:Name="tbFilter" TextChanged="txtFilter_TextChanged"/>
-            <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+            <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center">
                 <ListView.View>
                     <GridView x:Name="grdNames">
                         <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>

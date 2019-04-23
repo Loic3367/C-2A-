@@ -21,8 +21,11 @@ namespace WpfApp1
             DataAccess.Dal.GetListIngre(dailyRecipe);
             DataAccess.Dal.GetListSteps(dailyRecipe);
             lblDailyRecipe.Content = dailyRecipe.Name;
-            BitmapImage img = HandleImage.byteArrayToImage(dailyRecipe.Image);
-            imgDailyRecipe.Source = img;
+            if (dailyRecipe.Image != null)
+            {
+                BitmapImage img = HandleImage.byteArrayToImage(dailyRecipe.Image);
+                imgDailyRecipe.Source = img;
+            }
             lblDiffiRecipe.Content = dailyRecipe.Difficulty;
 
             //Charger la dernière recette ajoutée en BDD
@@ -30,8 +33,11 @@ namespace WpfApp1
             DataAccess.Dal.GetListIngre(lastRecipe);
             DataAccess.Dal.GetListSteps(lastRecipe);
             lblLastRecipe.Content = lastRecipe.Name;
-            BitmapImage img2 = HandleImage.byteArrayToImage(lastRecipe.Image);
-            imgLastRecipe.Source = img2;
+            if (lastRecipe.Image != null)
+            {
+                BitmapImage img2 = HandleImage.byteArrayToImage(lastRecipe.Image);
+                imgLastRecipe.Source = img2;
+            }
             lblLastRecipeDiff.Content = lastRecipe.Difficulty;
 
             //Gérer la couleur

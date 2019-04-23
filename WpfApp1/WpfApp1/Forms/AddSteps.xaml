@@ -27,7 +27,7 @@
         <ItemsControl
             ItemsSource="{Binding Steps}"
             Grid.Column="1"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="4"
             Grid.Row="0"
             Grid.IsSharedSizeScope="True">
             <ItemsControl.ItemTemplate>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
-15-2095230514
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\App.xaml
+16-1841063367
 
-26-148898227
-181826302500
-Forms\AddIngredients.xaml;Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\ChangePWDForm.xaml;Forms\CreateUserForm.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Forms\ShowSelRecipe.xaml;Images.xaml;UserControl\UCSteps.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabProfil.xaml;UserControl\UCTabRecette.xaml;
+2845986541
+19465449377
+Forms\AddIngredients.xaml;Forms\AddSteps.xaml;Forms\AddListIngredient.xaml;Forms\AddRecipes.xaml;Forms\ChangeColorForm.xaml;Forms\ChangePWDForm.xaml;Forms\CreateUserForm.xaml;Forms\LoginWindow.xaml;Forms\MainPage.xaml;Forms\ShowSelRecipe.xaml;Images.xaml;UserControl\UCSteps.xaml;UserControl\UCIngredients.xaml;UserControl\UCTabAccueil.xaml;UserControl\UCTabProfil.xaml;UserControl\UCTabRecette.xaml;
 
 False
 

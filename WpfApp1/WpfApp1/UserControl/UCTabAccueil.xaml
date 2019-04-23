@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="700">
-    <Grid Background="Silver">
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
+            
             <ColumnDefinition Width="18"/>
             <ColumnDefinition Width="79"/>
             <ColumnDefinition Width="97"/>
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="97"/>
             <ColumnDefinition Width="97"/>
             <ColumnDefinition Width="97"/>
-            <ColumnDefinition Width="5"/>
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -31,9 +31,23 @@
             <RowDefinition Height="5" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Grid.ColumnSpan="8" Content="Bienvenue sur le livre de recettes de Guld !" HorizontalAlignment="Center"/>
-        <Label Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="3" HorizontalAlignment="Center"  Content="Recette du jour :" />
-        <Label Grid.Column="1" Grid.Row="5"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette utilisé" />
-        <Label Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="4" HorizontalAlignment="Center" Content="Recette mieux notée/Dernière recette ajoutée" />
+        <Label Grid.Column="0" Grid.ColumnSpan="8" Content="Bienvenue sur le livre de recettes de Guld !" HorizontalAlignment="Center"/>
+        <Button Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="0" Content="Changer de couleur" Click="ChangeCouleur_Click"/>
+        <Label Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="3" HorizontalAlignment="Center"  Content="Recette du jour :" />
+        <Label Grid.Column="5" Grid.Row="1" Content="Nom :"/>
+        <Label Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" x:Name="lblDailyRecipe"/>
+        <Label Grid.Column="5" Grid.Row="2" Content="Difficulté :"/>
+        <Label Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" x:Name="lblDiffiRecipe"/>
+        <Button Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Click="OpenDailyRecipe_Click" Content="Ouvrir la recette journalière"/>
+        <Image Grid.Column="3" Grid.Row="1" x:Name="imgDailyRecipe" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <Label Grid.Column="0" Grid.Row="4"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette ajoutée" />
+
+        <Label Grid.Column="5" Grid.Row="4" Content="Nom :"/>
+        <Label Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="2" x:Name="lblLastRecipe"/>
+        <Label Grid.Column="5" Grid.Row="5" Content="Difficulté :"/>
+        <Label Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="2" x:Name="lblLastRecipeDiff"/>
+        <Button Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="2" Click="OpenLastRecipe_Click" Content="Ouvrir la dernère recette"/>
+        <Image Grid.Column="3" Grid.Row="4" x:Name="imgLastRecipe" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <Label Grid.Column="0" Grid.Row="4"  Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Dernière recette ajoutée" />
     </Grid>
 </UserControl>

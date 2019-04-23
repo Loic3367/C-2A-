@@ -15,11 +15,11 @@ namespace WpfApp1
         public ShowSelRecipe(RecipeViewModel r)
         {
             rvm = r;
-            this.DataContext = rvm;
-            
+            this.DataContext = rvm;           
             InitializeComponent();
             lvListIngre.ItemsSource = rvm.ListIngredients;
             lvListSteps.ItemsSource = rvm.ListSteps;
+            img.Source = HandleImage.byteArrayToImage(rvm.Image);
         }
     }
 }

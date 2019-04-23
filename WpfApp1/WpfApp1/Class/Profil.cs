@@ -12,6 +12,8 @@ namespace WpfApp1
         public string Nom { get; set; }
         public byte[] HashPassword { get; set; }
         public byte[] Salt { get; set; }
+        public long isAdmin { get; set; }
         public static Profil CurrentProfil { get;set; }
+
     }
 }

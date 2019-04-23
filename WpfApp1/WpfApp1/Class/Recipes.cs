@@ -161,9 +161,9 @@ namespace WpfApp1
         Cost cost { get; set; }
         Category categorie { get; set; }
         long creatorId { get; set; }
-
+        long isactive { get; set; }
         byte[] comments { get; set; }
-
+        byte[] image { get; set; }
         public string Name
         {
             get { return this.name; }
@@ -274,9 +274,28 @@ namespace WpfApp1
                 this.NotifyPropertyChanged();
             }
         }
+        public long IsActive
+        {
+            get { return this.isactive; }
+            set
+            {
+                this.isactive = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+        public byte[] Image
+        {
+            get { return this.image; }
+            set
+            {
+                this.image = value;
+                this.NotifyPropertyChanged();
+            }
+        }
+
         public RecipeViewModel()
         {
-
+            
         }
  
 

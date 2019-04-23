@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="360" Width="700"
+        Title="Guld Recipies" TextBlock.TextAlignment="Center"  Height="360" Width="710"
+        
         >
     <Window.Resources>
         <local:MeasureUnitConverter x:Key="MUconv" />

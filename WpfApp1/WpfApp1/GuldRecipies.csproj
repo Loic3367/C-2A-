@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -71,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\HandleImage.cs" />
     <Compile Include="Class\MeasureUnitConverter.cs" />
     <Compile Include="Class\Profil.cs" />
     <Compile Include="Forms\AddIngredients.xaml.cs">
@@ -89,6 +91,9 @@
     <Compile Include="Class\Steps.cs" />
     <Compile Include="Class\HandlePassword.cs" />
     <Compile Include="Class\Ingredient.cs" />
+    <Compile Include="Forms\ChangeColorForm.xaml.cs">
+      <DependentUpon>ChangeColorForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChangePWDForm.xaml.cs">
       <DependentUpon>ChangePWDForm.xaml</DependentUpon>
     </Compile>
@@ -102,7 +107,7 @@
     <Compile Include="Forms\ShowSelRecipe.xaml.cs">
       <DependentUpon>ShowSelRecipe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IngredientViewModel.cs" />
+    <Compile Include="Class\ModelBase.cs" />
     <Compile Include="UserControl\UCSteps.xaml.cs">
       <DependentUpon>UCSteps.xaml</DependentUpon>
     </Compile>
@@ -131,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\AddRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ChangeColorForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,7 +221,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add-icon.png" />

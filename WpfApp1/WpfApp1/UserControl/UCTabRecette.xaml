@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="700">
     <UserControl.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
@@ -14,30 +14,29 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5" />
+                
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="5" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="0" Content="Ajouter une recette :"/>
-            <Button Grid.Column="2" Grid.Row="0" Click="Button_Click" Height="30" Width="30">
+            <Label Grid.Column="0" Grid.Row="0" Content="Ajouter une recette :"/>
+            <Button Grid.Column="0" Grid.Row="0" Click="Button_Click" Height="30" Width="30" Margin="70 0 0 0">
                 <Image Source="/Images/add-icon.png"></Image>
             </Button>
-
-            <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6">
+            <Label Grid.Column="1" Grid.Row="0" Content="Chercher recette par son nom :"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="180 0 0 0" x:Name="tbFilter" TextChanged="txtFilter_TextChanged"/>
+            <ListView x:Name="lvMain" Margin="5,5,5,5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center">
                 <ListView.View>
                     <GridView x:Name="grdNames">
                         <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Temps de préparation"  DisplayMemberBinding="{Binding PrepTime}"/>
+                        <GridViewColumn Header="Temps de cuisson"  DisplayMemberBinding="{Binding CookTime}"/>
                         <GridViewColumn Header="Nombre de personne"  DisplayMemberBinding="{Binding NbrPeople}"/>
                         <GridViewColumn Header="Coût"  DisplayMemberBinding="{Binding Cost}"/>
                         <GridViewColumn Header="Categorie "  DisplayMemberBinding="{Binding Categorie}"/>

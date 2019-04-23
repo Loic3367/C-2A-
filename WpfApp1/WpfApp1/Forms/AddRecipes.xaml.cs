@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using Microsoft.Win32;
+using System.IO;
 
 namespace WpfApp1
 {
@@ -25,16 +27,32 @@ namespace WpfApp1
         public AddRecipes(RecipeViewModel vm)
         {
             this.vm = vm;
+            vm.IsActive = 1;
+            vm.DateCreation = DateTime.Today.ToString();
             this.DataContext = this.vm;
             InitializeComponent();
-          
+            
         }
 
         private void ButtonAddIngredient_Click(object sender, RoutedEventArgs e)
         {
+
             var nextVm = this.vm.ShowListIngreForm();
             var nextForm = new AddListIngredient(nextVm,this.vm.allRecipies);
             nextForm.ShowDialog();
         }
+
+        private void ChooseImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == true)
+            {
+                lblPathImage.Content = fileDialog.FileName;
+
+                byte[] file = File.ReadAllBytes(fileDialog.FileName);
+                vm.Image = file;
+            }
+        }
+       
     }
 }

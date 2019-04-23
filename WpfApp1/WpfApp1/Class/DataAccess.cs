@@ -55,8 +55,8 @@ namespace WpfApp1
 
         public long InsertRecipe(RecipeViewModel recette)
         {
-            String query = "INSERT INTO Recette (Nom,TempsCuisson,TempsPreparation, NombrePersonne,Cout,Categorie, DateCreation, Difficulte, Createur_ID)" +
-                " VALUES (@name,@tempscuisson, @tempspreparation,@nombrepersonne,@cout,@categorie,@datecreation,@difficulte,@createurid);" +
+            String query = "INSERT INTO Recette (Nom,TempsCuisson,TempsPreparation, NombrePersonne,Cout,Categorie, DateCreation, Difficulte, Createur_ID,isActive,Image)" +
+                " VALUES (@name,@tempscuisson, @tempspreparation,@nombrepersonne,@cout,@categorie,@datecreation,@difficulte,@createurid,@isActive,@image);" +
                 "SELECT last_insert_rowid()";
 
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
@@ -70,6 +70,8 @@ namespace WpfApp1
                 command.Parameters.AddWithValue("@datecreation", DateTime.Now);
                 command.Parameters.AddWithValue("@difficulte", recette.Difficulty);
                 command.Parameters.AddWithValue("@createurid", recette.CreatorId);
+                command.Parameters.AddWithValue("@isActive", recette.IsActive);
+                command.Parameters.AddWithValue("@image", recette.Image);
 
 
                 return (long)command.ExecuteScalar();
@@ -122,16 +124,50 @@ namespace WpfApp1
                     rec.NbrPeople = (long)rdr["NombrePersonne"];
                     rec.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
                     rec.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
-                    //rec.DateCreation = (string)rdr["DateCreation"];
+                    rec.DateCreation = (string)rdr["DateCreation"];
                     rec.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
                     rec.CreatorId = (long)rdr["Createur_ID"];
+                    rec.IsActive = (long)rdr["isActive"];
+                    rec.Image = (byte[])rdr["Image"];
                     listrec.Add(rec);
 
                 }
             }
             return listrec;
         }
+        public List<RecipeViewModel> getAllRecipesAvailable()
+        {
+            List<RecipeViewModel> listrec = new List<RecipeViewModel>();
 
+            string query = "SELECT * FROM Recette";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    RecipeViewModel rec = new RecipeViewModel();
+                    rec.ID = (long)rdr["Id"];
+                    rec.Name = (string)rdr["Nom"];
+                    rec.CookTime = (long)rdr["TempsCuisson"];
+                    rec.PrepTime = (long)rdr["TempsPreparation"];
+                    rec.NbrPeople = (long)rdr["NombrePersonne"];
+                    rec.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
+                    rec.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
+                    rec.DateCreation = (string)rdr["DateCreation"];
+                    rec.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
+                    rec.CreatorId = (long)rdr["Createur_ID"];
+                    rec.IsActive = (long)rdr["isActive"];
+                    rec.Image = (byte[])rdr["Image"];
+                    //Condition pour savoir si la recette est active ou pas
+                    if (rec.IsActive == 1)
+                    {
+                        listrec.Add(rec);
+                    }
+                    
+                }
+            }
+            return listrec;
+        }
         public List<RecipeViewModel> getRecipesbyUser(long creatorID)
         {
             List<RecipeViewModel> listrec = new List<RecipeViewModel>();
@@ -151,9 +187,10 @@ namespace WpfApp1
                     rec.NbrPeople = (long)rdr["NombrePersonne"];
                     rec.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
                     rec.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
-                    //rec.DateCreation = (string)rdr["DateCreation"];
+                    rec.DateCreation = (string)rdr["DateCreation"];
                     rec.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
                     rec.CreatorId = (long)rdr["Createur_ID"];
+                    rec.Image = (byte[])rdr["Image"];
                     listrec.Add(rec);
 
                 }
@@ -178,6 +215,7 @@ namespace WpfApp1
                         pflDB.Nom = (string)rdr["Identifiant"];
                         pflDB.HashPassword = (byte[])rdr["MotdePasse"];
                         pflDB.Salt = (byte[])rdr["Sel"];
+                        pflDB.isAdmin = (long)rdr["isAdmin"];
                     }
                 }
             }
@@ -186,14 +224,14 @@ namespace WpfApp1
 
         public void InsertProfil(Profil p)
         {
-            string query = "INSERT INTO Profil (Identifiant,Motdepasse,Sel) VALUES (@identifiant, @motdepasse,@sel)";
+            string query = "INSERT INTO Profil (Identifiant,Motdepasse,Sel,isAdmin) VALUES (@identifiant, @motdepasse,@sel, @isadmin)";
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
             {
 
                 command.Parameters.AddWithValue("@identifiant", p.Nom);
                 command.Parameters.AddWithValue("@motdepasse", p.HashPassword);
                 command.Parameters.AddWithValue("@sel", p.Salt);
-
+                command.Parameters.AddWithValue("@isadmin", p.isAdmin);
                 int result = command.ExecuteNonQuery();
             }
         }
@@ -250,5 +288,69 @@ namespace WpfApp1
             r.ListIngredients = li;
         }
         
+        public void UpdateRecipeAvailability(RecipeViewModel r)
+        {
+            string query = "UPDATE Recette SET isActive = @isactive WHERE Id = @identifiant";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@isactive", r.IsActive); 
+                cmd.Parameters.AddWithValue("@identifiant", r.ID);
+
+                int result = cmd.ExecuteNonQuery();
+            }
+        }
+
+        public RecipeViewModel GetRandomRecipes()
+        {
+            RecipeViewModel r = new RecipeViewModel();
+            string query = "SELECT * FROM Recette ORDER BY RANDOM() LIMIT 1";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                if(rdr.Read())
+                {
+                    r.ID = (long)rdr["Id"]; 
+                    r.Name = (string)rdr["Nom"];
+                    r.CookTime = (long)rdr["TempsCuisson"];
+                    r.PrepTime = (long)rdr["TempsPreparation"];
+                    r.NbrPeople = (long)rdr["NombrePersonne"];
+                    r.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
+                    r.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
+                    r.DateCreation = (string)rdr["DateCreation"];
+                    r.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
+                    r.CreatorId = (long)rdr["Createur_ID"];
+                    r.IsActive = (long)rdr["isActive"];
+                    r.Image = (byte[])rdr["Image"];
+                }
+            }
+                return r;
+        }
+
+        public RecipeViewModel GetLastRecipe()
+        {
+            RecipeViewModel r = new RecipeViewModel();
+            string query = "SELECT * FROM Recette ORDER BY DateCreation DESC LIMIT 1;";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+            {
+                SQLiteDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    r.ID = (long)rdr["Id"];
+                    r.Name = (string)rdr["Nom"];
+                    r.CookTime = (long)rdr["TempsCuisson"];
+                    r.PrepTime = (long)rdr["TempsPreparation"];
+                    r.NbrPeople = (long)rdr["NombrePersonne"];
+                    r.Cost = new Cost() { valeur = (Cout)(long)rdr["Cout"] };
+                    r.Categorie = new Category() { value = (Categorie)(long)rdr["Categorie"] };
+                    r.DateCreation = (string)rdr["DateCreation"];
+                    r.Difficulty = new Difficulty() { value = (Difficultee)(long)rdr["Difficulte"] };
+                    r.CreatorId = (long)rdr["Createur_ID"];
+                    r.IsActive = (long)rdr["isActive"];
+                    r.Image = (byte[])rdr["Image"];
+                }
+            }
+            return r;
+        }
     }
+
 }

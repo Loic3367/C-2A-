@@ -42,10 +42,13 @@ namespace WpfApp1
                 MainPage mainPage = new MainPage(pflDB);
                 mainPage.Show();
                 Application.Current.MainWindow = mainPage;
+                this.Close();
             }  
-            catch(Exception err) { MessageBox.Show(err.Message); }
+            catch {
+                MessageBox.Show("Votre identifiant/mot de passe n'est pas valide");
+            }
                 
-            this.Close();
+            
         }
 
         private void openFormCreateLogin(object sender, RoutedEventArgs e)

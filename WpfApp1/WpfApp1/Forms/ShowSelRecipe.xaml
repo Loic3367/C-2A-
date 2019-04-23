@@ -11,17 +11,22 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="126"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="126"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="26"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -29,20 +34,21 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="2" Content="Difficultée"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="{Binding Difficulty}"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Nombre de personne"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="{Binding NbrPeople}"/>
-        <Label Grid.Column="0" Grid.Row="6" Content="Temps de préparation"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="{Binding PrepTime}"/>
-        <Label Grid.Column="5" Grid.Row="2" Content="Temps de cuisson"/>
-        <Label Grid.Column="5" Grid.Row="3" Content="{Binding CookTime}"/>
-        <Label Grid.Column="5" Grid.Row="4" Content="Coût"/>
-        <Label Grid.Column="5" Grid.Row="5" Content="{Binding Cost}"/>
-        <Label Grid.Column="5" Grid.Row="6" Content="Catégorie"/>
-        <Label Grid.Column="5" Grid.Row="7" Content="{Binding Categorie}"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Liste des ingrédients"/>
-        <ListView x:Name="lvListIngre" Margin="5,5,5,0" Grid.Column="1" Grid.Row="2" Grid.RowSpan="8" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" ScrollViewer.CanContentScroll="True">
+        <Image Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="5" x:Name="img"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Difficultée :"/>
+        <Label Grid.Column="1" Grid.Row="0" Content="{Binding Difficulty}"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Nombre de personne"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="{Binding NbrPeople}"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Temps de préparation"/>
+        <Label Grid.Column="1" Grid.Row="4" Content="{Binding PrepTime}"/>
+        <Label Grid.Column="5" Grid.Row="0" Content="Temps de cuisson"/>
+        <Label Grid.Column="6" Grid.Row="0" Content="{Binding CookTime}"/>
+        <Label Grid.Column="5" Grid.Row="2" Content="Coût"/>
+        <Label Grid.Column="6" Grid.Row="2" Content="{Binding Cost}"/>
+        <Label Grid.Column="5" Grid.Row="4" Content="Catégorie"/>
+        <Label Grid.Column="6" Grid.Row="4" Content="{Binding Categorie}"/>
+        <Label Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Content="Liste des ingrédients"/>
+        <ListView x:Name="lvListIngre" Margin="5,5,5,0" Grid.Column="0" Grid.Row="7" Grid.RowSpan="5" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" ScrollViewer.CanContentScroll="True">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>
@@ -51,8 +57,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Grid.Column="1" Grid.Row="6" Content="Liste des étapes"/>
-        <ListView x:Name="lvListSteps" Margin="5,5,5,0" Grid.Column="1" Grid.Row="7" Grid.RowSpan="8" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" ScrollViewer.CanContentScroll="True">
+        <Label Grid.Column="5" Grid.Row="6" Content="Liste des étapes"/>
+        <ListView x:Name="lvListSteps" Margin="5,5,5,0" Grid.Column="4" Grid.Row="7" Grid.RowSpan="8" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" ScrollViewer.CanContentScroll="True">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Numéro"  DisplayMemberBinding="{Binding Number}"/>

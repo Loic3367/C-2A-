@@ -5,7 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="690">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -23,10 +28,12 @@
         </Grid.RowDefinitions>
         <Label Content="Vous êtes connecté avec le profil suivant :"/>
         <Label Grid.Column="1" Grid.Row="0" x:Name="lblProfilName"/>
-        <Button Grid.Row="0" Grid.Column="3" Content="Changer mot de passe" Click="ChangePassword_Click"/>
-        <Label Content="Afficher un UserControl pour gérer toutes les recettes" Grid.Row="2" Grid.Column="2"/>
         
-        <ListView x:Name="lvRecipesUser" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6">
+        <Button Grid.Row="0" Grid.Column="3" Content="Changer mot de passe" Click="ChangePassword_Click"/>
+        <Button x:Name="btnCreatePfl" Grid.Row="0" Grid.Column="4" Content="Créer Profil Admin" Click="CreateProfilAdmin_Click"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Chercher une recette par son nom :"/>
+        <TextBox Grid.Row="1" Grid.Column="1"  x:Name="tbFilter" TextChanged="txtFilter_TextChanged"/>
+        <ListView x:Name="lvRecipesUser" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6">
             <ListView.View>
                 <GridView x:Name="grdNames">
                     <GridViewColumn Header="Nom"  DisplayMemberBinding="{Binding Name}"/>

@@ -19,21 +19,30 @@ namespace WpfApp1
     /// </summary>
     public partial class CreateUserForm : Window
     {
+        private Profil pfl = new Profil();
         public CreateUserForm()
         {
             InitializeComponent();
-        }
+            pfl.isAdmin = 0;
 
+        }
+        public CreateUserForm(Profil p)
+        {
+            pfl = p;
+            InitializeComponent();
+        }
         private void CreateProfil_click(object sender, RoutedEventArgs e)
         {
             if (pwbox.Password != pwbox2.Password)
             {
                 MessageBox.Show("Votre mot de passe est différent");
                 return;
-            }
-            Profil pfl = new Profil();
+            }        
             pfl.Nom = tbIdentifiant.Text;
+            
             HandlePassword.HashProfil(this.pwbox2.Password, pfl);
+            MessageBox.Show("Le profil a bien été crée");
+            this.Close();
         }
     }
 }

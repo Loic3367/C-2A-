@@ -250,3 +250,5 @@ C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\o
 C:\Users\Loïc Guld\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ShowSelRecipe.baml
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ShowSelRecipe.g.cs
 C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ShowSelRecipe.baml
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ChangeColorForm.g.cs
+C:\Users\adai103\Documents\2eme_année\Projet\Projet_DotNet\WpfApp1\WpfApp1\obj\Debug\Forms\ChangeColorForm.baml

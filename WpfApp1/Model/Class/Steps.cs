@@ -47,7 +47,7 @@ namespace WpfApp1
         }
         public void AddEmpty()
         {
-            this.Steps.Add(new StepViewModel(this.Steps.Count));
+            this.Steps.Add(new StepViewModel(this.Steps.Count+1));
         }
         public void RemoveLast()
         {

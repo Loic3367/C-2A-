@@ -16,7 +16,7 @@ namespace WpfApp1
         public UCTabProfil()
         {
             InitializeComponent();
-            
+            //Condition sur le type de profil connecté afin de voir ce que on affiche ou pas
             if(Profil.CurrentProfil.isAdmin == 1)
             {
                 lblProfilName.Content = Profil.CurrentProfil.Nom + "(compte administrateur)";

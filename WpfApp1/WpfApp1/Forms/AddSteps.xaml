@@ -28,14 +28,15 @@
             ItemsSource="{Binding Steps}"
             Grid.Column="1"
             Grid.ColumnSpan="4"
-            Grid.Row="0"
-            Grid.IsSharedSizeScope="True">
+            Grid.Row="0">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition SharedSizeGroup="colNumber"/>
-                            <ColumnDefinition SharedSizeGroup="colDescription"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                           
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="{Binding Num}"/>
                         <TextBox

@@ -14,8 +14,7 @@ namespace WpfApp1
         private ObservableCollection<RecipeViewModel> listRecipes;
         public UCTabRecette()
         {
-            InitializeComponent();
-            //listRecipes = new ObservableCollection<RecipeViewModel>(DataAccess.Dal.getAllRecipes());
+            InitializeComponent();        
             listRecipes = new ObservableCollection<RecipeViewModel>(DataAccess.Dal.getAllRecipesAvailable());
             lvMain.ItemsSource = listRecipes;
             //Gérer le filtre
@@ -38,9 +37,9 @@ namespace WpfApp1
 
         private void HandleDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //Recette sélectionnée sans la liste Ingredients liés et sans la liste d'étapes
+            //Recette sélectionnée grâce au doubleclick dans la listeView.
             RecipeViewModel selRecipe = (RecipeViewModel)((ListViewItem)sender).Content;
-
+            //On va récuperer les ingrédients et les étapes liés à cette recette
             DataAccess.Dal.GetListIngre(selRecipe);
             DataAccess.Dal.GetListSteps(selRecipe);
             ShowSelRecipe recipeForm = new ShowSelRecipe(selRecipe);

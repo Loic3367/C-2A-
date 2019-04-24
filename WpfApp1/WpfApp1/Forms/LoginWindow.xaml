@@ -20,14 +20,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Content="Identifiant"/>
         <TextBox Grid.Column="2" x:Name="Identifiant" Grid.ColumnSpan="3"/>
         <Label Grid.Column="0" Content="Mot de passe" Grid.Row="1"/>
         <PasswordBox Grid.Column="2" x:Name="inputPwd" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Button Grid.Row="2" Grid.ColumnSpan="4" Content="Identification" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Center"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="4" Content="Identification" Margin="1"  Click="Button_Click" Grid.Column="1" HorizontalAlignment="Center"/>
         <TextBlock Margin="10" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Center" >
 			<Hyperlink  Click="openFormCreateLogin" >Pas de compte ? Veuillez cliquer ici pour en créer un</Hyperlink> 
         </TextBlock>

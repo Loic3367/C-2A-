@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Data.SQLite;
+using System.IO;
 
 namespace WpfApp1
 {
@@ -13,9 +14,10 @@ namespace WpfApp1
         SQLiteConnection conn;
         public DataAccess()
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-           
-            this.conn = new SQLiteConnection(@"Data Source="+path+"\\DataBase.db");
+            //L'installateur de l'application permettra de set la DataBase dans C:/ProgramData/Guld_Recipies
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string fullpath = Path.Combine(path, "Guld_Recipies", "DataBase.db");
+            this.conn = new SQLiteConnection(@"Data Source="+fullpath);
             this.conn.Open();
         }
         public List<Ingredient> SelectAllIngredients()

@@ -44,11 +44,11 @@ namespace WpfApp1
 
         private void ChooseImage_Click(object sender, RoutedEventArgs e)
         {
+            //Demander a l'utilisateur une image puis la transformer en byte[]
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
                 lblPathImage.Content = fileDialog.FileName;
-
                 byte[] file = File.ReadAllBytes(fileDialog.FileName);
                 vm.Image = file;
             }

@@ -29,6 +29,7 @@ namespace WpfApp1
 
         public static void HashProfil(string input, Profil pfl)
         {
+            //Fonction générant un profil hasher
             pfl.Salt = GenerateSalt();
             pfl.HashPassword = HashPassword(input, pfl.Salt);
             DataAccess.Dal.InsertProfil(pfl);

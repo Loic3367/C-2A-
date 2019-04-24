@@ -8,6 +8,7 @@ using System.Windows.Data;
 
 namespace WpfApp1
 {
+    //Classe permettant de bien gérer dans le XAML la conversion entre l'enum MeasureIngredient et la structure IngredientMeasure
     [ValueConversion(typeof(MeasureIngredient),typeof(IngredientMeasure))]
     class MeasureUnitConverter : IValueConverter
     {

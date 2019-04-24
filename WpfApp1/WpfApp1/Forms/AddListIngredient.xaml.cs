@@ -38,6 +38,7 @@ namespace WpfApp1
 
         private void AddListIngres_Click(object sender, RoutedEventArgs e)
         {
+            //Récuperer les ingrédients du View Model Ingredient dans le Recipe View Model puis ouvrir la fenêtre d'après
             this.ivm.GetListIngre(rvm);
             var stepsVm = new AddStepsViewModel(rvm, listRecipes);
             AddSteps stepsForm = new AddSteps(stepsVm);

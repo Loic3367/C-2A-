@@ -73,6 +73,7 @@ namespace WpfApp1
         string name;
         string expirationDate;
         MeasureIngredient measureUnit;
+        
         Ingredient selected;
         public long Id
         {
@@ -143,8 +144,8 @@ namespace WpfApp1
         public IngredientViewModel(long id,String myName, string myExpiraDate, MeasureIngredient myUnit)
         {
      
-            this.Id = id;
-            this.Name = myName;
+            this.Selected.Id = id;
+            this.Selected.Name = myName;
             this.ExpirationDate = myExpiraDate;
             this.MeasureUnit = myUnit;
         }

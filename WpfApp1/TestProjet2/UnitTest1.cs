@@ -30,7 +30,7 @@ namespace TestProjet2
         [TestMethod]
         public void AddRecipeToBDD()
         {
-            RecipeViewModel rvm = new RecipeViewModel("PouletTest", 15, 20, 5, 2, 1);
+            RecipeViewModel rvm = new RecipeViewModel("PouletTest2", 15, 20, 5, 2, 1);
             Cost c = new Cost();
             c.valeur = Cout.Chère;         
             rvm.Cost = c;
@@ -54,8 +54,14 @@ namespace TestProjet2
             li.Add(new IngredientViewModel("Betteraves", "02/05/2019", MeasureIngredient.grammes));
             li.Add(new IngredientViewModel("Pesto", "22/07/2019", MeasureIngredient.grammes));
             rvm.ListIngredients = li;
-
+            rvm.CreatorId = 10;
+            rvm.ID = 15;
             DataAccess.Dal.InsertRecipe(rvm);
+ 
+            foreach (Steps r in rvm.ListSteps)
+            {
+                DataAccess.Dal.InsertSteps(rvm.ID, r);
+            }
             ObservableCollection<RecipeViewModel> listrvm = new ObservableCollection<RecipeViewModel>(DataAccess.Dal.getAllRecipes());
            
             Assert.IsTrue(listrvm.Any(x => x.Name == rvm.Name));
@@ -64,7 +70,7 @@ namespace TestProjet2
         public void AddProfilToBDD()
         {
             Profil pfl = new Profil();
-            pfl.Nom = "ProfilTest2";
+            pfl.Nom = "ProfilTest3";
             string pwdPasChiffre = "test";
             HandlePassword.HashProfil(pwdPasChiffre,pfl);
 

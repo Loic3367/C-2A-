@@ -26,7 +26,7 @@ namespace WpfApp1
                 //On check si l'ancien mdp inscrit correspond à celui de la BDD
                 Profil prlDB = HandlePassword.GetProfilHash(oldPwd.Password, pfl);
             }
-            catch (Exception err) { MessageBox.Show(err.Message); }
+            catch (Exception err) { MessageBox.Show("Votre mot de passe ne correspond pas à celui de la BDD"); }
 
             if (newPwd.Password != newPwd2.Password)
             {

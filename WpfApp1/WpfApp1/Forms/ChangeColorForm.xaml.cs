@@ -27,6 +27,8 @@ namespace WpfApp1
         private void ChangeColor_Click(object sender, RoutedEventArgs e)
         {
             string color = cbColor.Text;
+            //Fonction pour accéder au app.config et changer la value de la clé Color afin de d'enregistrer le choix de couleur.
+            //La couleur change lors du rédemarrage de l'application
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
             settings["Color"].Value = color;
